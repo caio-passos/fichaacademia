@@ -62,9 +62,11 @@
 
 ```mermaid
     flowchart TD
-    Start ==> id1(print: Bem vindo ao sistema automatizado de treino de musculação)
+    Start ==> id1[print: Bem vindo ao sistema automatizado de treino de musculação]
     id1 ==> id2(Insira seu código de cadastro ou digite 0 para criar um novo)
     id2 -->id3
     id3[/Input: *numero de cadastro* ou 0 para novo cadastro/]
-    id3 --> c & d
+    id3 --> id4 & id5
+    id4(Verificação de cadastro previamente registrado em Struct)
+    id5[a]
         
