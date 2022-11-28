@@ -23,6 +23,7 @@
       +int Idade
       +char sexo
       +float massa corporal
+      +float altura
     }
     class objetivoDeTreino{
       -Hipertrofia()
@@ -58,8 +59,8 @@
     para efetuar a progressão de cargas:  
     aumento de: 5% para membros superiores, 10% para membros inferiores. Sendo adicionadas ao registro de carga
     de cada exercício do banco de dados de cada aluno específicamente. 
-```Mermaid    
-        flowchart TD
+```mermaid    
+    flowchart TD
     Start ==> id1[print: Bem vindo ao sistema automatizado de treino de musculação]
     id1 ==> id2(Insira seu código de cadastro ou digite 0 para criar um novo)
     id2 -->id3
@@ -72,8 +73,25 @@
     id5 ==> |Não| id7
     id6[/input: Armazenamento de dados em struct\]
     id7(Verificação de banco de dados pré-existente)
-    id0[(Dados em Struct)]
-   ```
+    id0[(Dados do usuário em Struct)]
+    id6 & id7 -.-> id0
+    id6 -.-> id8 & id9 & id10 & id11 & id12
+    id8 -.-> id0
+    id9 -.-> id0
+    id10 -.-> id0
+    id11 -.-> id0
+    id12 -.-> id0
+    
+    id8[/Input: +string Nome/]
+    id9[/Input: +int idade/]
+    id10[/Input: +char sexo/]
+    id11[/Input: +float.1f massa corporal/]
+    id12[/Input: +float.2f altura/]
+    
+    
+
+    
+ ```
 
         
         
