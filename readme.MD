@@ -8,7 +8,7 @@
 ## **2- Como funciona uma ficha de academia?**
 
     Uma ficha de academia requer a inscrição do aluno contendo:  
-    (Nome, Idade, sexo, massa corporal, objetivo de treino, divisão de treinos)
+    (Nome, Idade, sexo, massa corporal, altura, objetivo de treino, divisão de treinos)
 
 ```mermaid
     classDiagram
