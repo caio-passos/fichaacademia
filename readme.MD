@@ -59,7 +59,7 @@
     aumento de: 5% para membros superiores, 10% para membros inferiores. Sendo adicionadas ao registro de carga
     de cada exercício do banco de dados de cada aluno específicamente. 
 ```Mermaid    
-    flowchart TD
+        flowchart TD
     Start ==> id1[print: Bem vindo ao sistema automatizado de treino de musculação]
     id1 ==> id2(Insira seu código de cadastro ou digite 0 para criar um novo)
     id2 -->id3
@@ -68,10 +68,13 @@
     id4(Verificação de cadastro)
     id4 --> id5
     id5{Registro de novo cadastro}
-    id5 ==> |sim| id6   
-    id5 ==> |não| id7
+    id5 ==> |Sim| id6   
+    id5 ==> |Não| id7
     id6[/input: Armazenamento de dados em struct\]
-    id7(Verificação )
+    id7(Verificação de banco de dados pré-existente)
+    id0[(Dados em Struct)]
+
+        
         
 
                 
