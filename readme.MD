@@ -29,7 +29,6 @@
       -Definição()
     }
     class divisãoDeTreinos{
-      +A()
       +AB()
       +ABC()
       +ABCD()
