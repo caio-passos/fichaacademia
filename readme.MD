@@ -19,7 +19,7 @@
     Ficha : +objetivoDeTreino()
     Ficha: +divisiãoDeTreinos()
     class DadosPessoais{
-      +String nome
+      +char nome
       +int Idade
       +char sexo
       +float massa corporal
@@ -82,7 +82,7 @@
     id11 -.-> id0
     id12 -.-> id0
     
-    id8[/Input: +string Nome/]
+    id8[/Input: +char Nome/]
     id9[/Input: +int idade/]
     id10[/Input: +char sexo/]
     id11[/Input: +float.1f massa corporal/]
