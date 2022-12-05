@@ -1,12 +1,13 @@
 #include <stdio.h>
 #include <unistd.h>
 #include "funcoes/funcoes.h"
+int dadosAtleta();
+struct dados;
 
 int main() {
     printf("Bem vindo ao sistema automatizado de treino de musculacao\n");
     sleep(1);
-    printf("\nInsira seu código de cadastro ou digite 0 para criar um novo:");
-
+    dadosAtleta();
 
 //extern method
     return 0;

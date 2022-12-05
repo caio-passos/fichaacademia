@@ -4,6 +4,8 @@
 
 #ifndef FICHAACADEMIA_FUNCOES_H
 #define FICHAACADEMIA_FUNCOES_H
-struct atleta;
+int dadosAtleta();
+struct dados;
+
 
 #endif //FICHAACADEMIA_FUNCOES_H
