@@ -70,8 +70,9 @@
     end
     id3 ==> id4
     id4{{Verificação de banco de dados pré-existente}}
-    b -..-> id4
-    id4 -.-> id13((Preenchido)) & id14((Vazio))
+    b -..- id4
+   
+    id4 ==verificaçao==> id14((teste))
    
    
    id14==> id5
@@ -94,8 +95,28 @@
     id10[/Input: +char sexo/]
     id11[/Input: +float.1f massa corporal/]
     id12[/Input: +float.2f altura/]
+     
+    id4 ==> id13((Preenchido)) 
+
     
-    id13 =======> id15{{Ficha de treino}}
+    
+        id13 =======> id15{{Ficha de treino AB}}
+     subgraph Ficha de treino AB
+     id15[*Ficha de treino AB*\n\n Aquecimento_10mins\n Chest press_4x12 \n Cruxifixo reto com halters_4x10 \n Desenvolvimento halter sentado_4x10 \n Elevação lateral_4x10 \n Leg press 45_4x12 \n Cadeira extensora_4x12 \n Pulley Triceps_4x12]
+    end
+    
+   
+        id13 ======> id17{{Ficha de treino ABC}}
+      subgraph Ficha de treino ABC
+      id17[Ficha de treino ABC]
+    end
+    
+    
+        id13 =======> id18{{Ficha de treino ABCD}}
+    subgraph Ficha de treino ABCD
+    id18[Ficha de treino ABCD]
+    end
+    
     
     
     
