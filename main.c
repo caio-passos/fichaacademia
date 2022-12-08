@@ -3,11 +3,12 @@
 #include "funcoes/funcoes.h"
 int dadosAtleta();
 struct dados;
-
+void Verificar();
+void Menu();
 int main() {
-    printf("Bem vindo ao sistema automatizado de treino de musculacao\n");
-    sleep(1);
-    dadosAtleta();
+    Menu();
+
+
 
 //extern method
     return 0;
