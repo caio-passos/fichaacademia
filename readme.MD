@@ -100,15 +100,21 @@
 
     
     
-        id13 =======> id15{{Ficha de treino AB}}
+        id13 =======> id20(((_)))
      subgraph Ficha de treino AB
-     id15[*Ficha de treino AB*\n\n Aquecimento_10mins\n Chest press_4x12 \n Cruxifixo reto com halters_4x10 \n Desenvolvimento halter sentado_4x10 \n Elevação lateral_4x10 \n Leg press 45_4x12 \n Cadeira extensora_4x12 \n Pulley Triceps_4x12]
-    end
+     id20 -.-> id15 & id16
+     id15[*Ficha de treino AB*\n\n Treino A \n\nAquecimento_10mins\n Chest press_4x12 \n Cruxifixo reto com halters_4x10 \n Desenvolvimento halter sentado_4x10 \n Elevação lateral_4x10 \n Leg press 45_4x12 \n Cadeira extensora_4x12 \n Pulley Triceps_4x12]
+     id16[*Ficha de treino AB*\n\n Treino B \n\nAquecimento_10mins\n Pulley anterior aberto_4x12 \n Remada curvada unilateral_4x12 \n Encolhimento halter_4x10 \n Mesa Flexora_4x12 \n Cadeira Flexora_4x10 \n Cadeira abdutora_4x12 \n Rosca direta barra em W_4x10 \n  Panturrilha leg press_4x12 \n Abdominal elevação quadril_4x10]
+     
+         end
     
    
-        id13 ======> id17{{Ficha de treino ABC}}
-      subgraph Ficha de treino ABC
+        id13 ======> id21((_))
+        id21-.-> id17 & id22
+         
+        subgraph Ficha de treino ABC
       id17[Ficha de treino ABC]
+      id22[Ficha de treino ABC]
     end
     
     
@@ -117,12 +123,6 @@
     id18[Ficha de treino ABCD]
     end
     
-    
-    
-    
-    
-    
-
     
  ```
 

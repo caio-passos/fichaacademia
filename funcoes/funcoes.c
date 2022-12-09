@@ -7,7 +7,10 @@ int n;
 int c = 0;
 
 int dadosAtleta() {
-
+//
+//A professora espera que usamos algum tipo de argumentos dentro das funções que colocarmos no programa,
+//sugiro que a função que aumenta o peso do exercícios tenham argumentos implícitos dentro das funções
+//
 //quando termina o loop deve atribuir x a mais a quantidade quando usuario achar facil o exercicio
     struct Nivel{
        int Iniciante;
@@ -65,6 +68,6 @@ int dadosAtleta() {
 
 
 
-    return 0;
+    return 0; //return menu ?
 }
 

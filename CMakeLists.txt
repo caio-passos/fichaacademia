@@ -3,5 +3,5 @@ project(fichaacademia C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(fichaacademia main.c funcoes/funcoes.c funcoes/funcoes.h)
+add_executable(fichaacademia main.c funcoes/funcoes.c funcoes/funcoes.h funcoes/Menu.c)
 

@@ -6,6 +6,7 @@
 #define FICHAACADEMIA_FUNCOES_H
 int dadosAtleta();
 struct dados;
+void Menu();
 
 
 #endif //FICHAACADEMIA_FUNCOES_H

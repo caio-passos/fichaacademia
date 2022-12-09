@@ -5,6 +5,7 @@ int dadosAtleta();
 struct dados;
 void Verificar();
 void Menu();
+
 int main() {
     Menu();
 
