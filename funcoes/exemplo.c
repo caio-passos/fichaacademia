@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "funcoes.h"
 #define MAX_Pessoa 250
 typedef struct {
     char Nome[MAX_Pessoa][50];
