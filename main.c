@@ -1,3 +1,4 @@
+// https://stackoverflow.com/users/saves/17413520/
 #include <stdio.h>
 #include <unistd.h>
 #include "funcoes/funcoes.h"
