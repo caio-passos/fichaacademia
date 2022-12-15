@@ -1,3 +1,0 @@
-/home/LudoPassos/Documentos/programing/C/fichaacademia/cmake-build-debug/CMakeFiles/fichaacademia.dir
-/home/LudoPassos/Documentos/programing/C/fichaacademia/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/LudoPassos/Documentos/programing/C/fichaacademia/cmake-build-debug/CMakeFiles/rebuild_cache.dir

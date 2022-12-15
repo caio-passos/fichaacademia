@@ -60,36 +60,68 @@
     aumento de: 5% para membros superiores, 10% para membros inferiores. Sendo adicionadas ao registro de carga
     de cada exercício do banco de dados de cada aluno específicamente. 
 ```mermaid    
-    flowchart TD
+    flowchart TB
+    subgraph Menu
+    direction TB
     Start ==> id1[print: Bem vindo ao sistema automatizado de treino de musculação]
     id1 ==> id2(Insira seu código de cadastro ou digite 0 para criar um novo)
-    id2 -->id3
+    id2 ==>id3
     id3[/Input: *numero de cadastro* ou 0 para novo cadastro/]
-    id3 --> id4
-    id4(Verificação de cadastro)
-    id4 --> id5
+    end
+    id3 ==> id4
+    id4{{Verificação de banco de dados pré-existente}}
+    b -..- id4
+   
+    id4 ==verificaçao==> id14((teste))
+   
+   
+   id14==> id5
+   subgraph Dados
     id5{Registro de novo cadastro}
-    id5 ==> |Sim| id6   
-    id5 ==> |Não| id7
+    id5 ==> id6   
     id6[/input: Armazenamento de dados em struct\]
-    id7(Verificação de banco de dados pré-existente)
-    id0[(Dados do usuário em Struct)]
-    id6 & id7 -.-> id0
+    b[(Dados do usuário em Struct)]
     id6 -.-> id8 & id9 & id10 & id11 & id12
-    id8 -.-> id0
-    id9 -.-> id0
-    id10 -.-> id0
-    id11 -.-> id0
-    id12 -.-> id0
+    id8 -.-> b
+    id9 -.-> b
+    id10 -.-> b
+    id11 -.-> b
+    id12 -.-> b
+    end
+  
     
     id8[/Input: +char Nome/]
     id9[/Input: +int idade/]
     id10[/Input: +char sexo/]
     id11[/Input: +float.1f massa corporal/]
     id12[/Input: +float.2f altura/]
-    
-    
+     
+    id4 ==> id13((Preenchido)) 
 
+       
+        id13 =======> id20((_))
+     subgraph Ficha de treino AB
+     id20 -.-> id15 & id16
+     id15[*Ficha de treino AB*\n\n Treino A \n\nAquecimento_10mins\n Chest press_4x12 \n Cruxifixo reto com halters_4x10 \n Desenvolvimento halter sentado_4x10 \n Elevação lateral_4x10 \n Leg press 45_4x12 \n Cadeira extensora_4x12 \n Pulley Triceps_4x12]
+     id16[*Ficha de treino AB*\n\n Treino B \n\nAquecimento_10mins\n Pulley anterior aberto_4x12 \n Remada curvada unilateral_4x12 \n Encolhimento halter_4x10 \n Mesa Flexora_4x12 \n Cadeira Flexora_4x10 \n Cadeira abdutora_4x12 \n Rosca direta barra em W_4x10 \n  Panturrilha leg press_4x12 \n Abdominal elevação quadril_4x10]
+     
+         end
+    
+ id13 ======> id21((_))
+        id21-.-> id17 & id22 & id23
+         
+        subgraph Ficha de treino ABC
+      id17[Ficha de treino ABC \n\n Treino A \nSupino reto com barra_3x6\n Supino inclinado com halteres_3x8 \n Cruxifixo na polia_3x10 \n Desenvolvimento com halteres_3x6 \n Elevação lateral na polia_3x10 \n Tríceps corda_3x10 \n Rosca francesa_3x12]
+      id22[Ficha de treino ABC \n\n Treino B \n Barra fixa3x6-8 \n Remada curvada_3x8-10 \n Pull Down_3x10-12 \n Encolhimento com barra_3x6-8 \n Cruxifixo invertido na polia_3x10 \n Rosca direta_3x10 \n  Rosca inversa_3x12]
+      id23[Ficha de treino ABC \n\n Treino C \n Agachamento livre_3x6-8 \n Leg press_3x8-10 \n Stiff_3x10-12 \n Passada_3x8x2 \n Mesa flexora_3x10-12 \n Cadeira extensora_3x10 \n Panturrilhas em pe_3x12-15 \n Panturrilhas sentada]      
+    end
+    
+id13 =======> id18{{Ficha de treino ABCD}}
+    subgraph Ficha de treino ABCD
+    id18[Ficha de treino ABCD]
+    end
+       
+        
     
  ```
 
