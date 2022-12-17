@@ -98,31 +98,31 @@
      
     id4 ==> id13((Preenchido)) 
 
-       
-        id13 =======> id20((_))
-     subgraph Ficha de treino AB
-     id20 -.-> id15 & id16
-     id15[*Ficha de treino AB*\n\n Treino A \n\nAquecimento_10mins\n Chest press_4x12 \n Cruxifixo reto com halters_4x10 \n Desenvolvimento halter sentado_4x10 \n Elevação lateral_4x10 \n Leg press 45_4x12 \n Cadeira extensora_4x12 \n Pulley Triceps_4x12]
-     id16[*Ficha de treino AB*\n\n Treino B \n\nAquecimento_10mins\n Pulley anterior aberto_4x12 \n Remada curvada unilateral_4x12 \n Encolhimento halter_4x10 \n Mesa Flexora_4x12 \n Cadeira Flexora_4x10 \n Cadeira abdutora_4x12 \n Rosca direta barra em W_4x10 \n  Panturrilha leg press_4x12 \n Abdominal elevação quadril_4x10]
-     
-         end
-    
- id13 ======> id21((_))
-        id21-.-> id17 & id22 & id23
-         
-        subgraph Ficha de treino ABC
-      id17[Ficha de treino ABC \n\n Treino A \nSupino reto com barra_3x6\n Supino inclinado com halteres_3x8 \n Cruxifixo na polia_3x10 \n Desenvolvimento com halteres_3x6 \n Elevação lateral na polia_3x10 \n Tríceps corda_3x10 \n Rosca francesa_3x12]
-      id22[Ficha de treino ABC \n\n Treino B \n Barra fixa3x6-8 \n Remada curvada_3x8-10 \n Pull Down_3x10-12 \n Encolhimento com barra_3x6-8 \n Cruxifixo invertido na polia_3x10 \n Rosca direta_3x10 \n  Rosca inversa_3x12]
-      id23[Ficha de treino ABC \n\n Treino C \n Agachamento livre_3x6-8 \n Leg press_3x8-10 \n Stiff_3x10-12 \n Passada_3x8x2 \n Mesa flexora_3x10-12 \n Cadeira extensora_3x10 \n Panturrilhas em pe_3x12-15 \n Panturrilhas sentada]      
-    end
-    
-id13 =======> id18{{Ficha de treino ABCD}}
-    subgraph Ficha de treino ABCD
-    id18[Ficha de treino ABCD]
-    end
-       
-        
-    
+             subgraph Loop  
+                id13 =======> id20((_))
+             subgraph Ficha de treino AB
+             id20 -.-> id15 & id16
+             id15[*Ficha de treino AB*\n\n Treino A \n\nAquecimento_10mins\n Chest press_4x12 \n Cruxifixo reto com halters_4x10 \n Desenvolvimento halter sentado_4x10 \n Elevação lateral_4x10 \n Leg press 45_4x12 \n Cadeira extensora_4x12 \n Pulley Triceps_4x12]
+             id16[*Ficha de treino AB*\n\n Treino B \n\nAquecimento_10mins\n Pulley anterior aberto_4x12 \n Remada curvada unilateral_4x12 \n Encolhimento halter_4x10 \n Mesa Flexora_4x12 \n Cadeira Flexora_4x10 \n Cadeira abdutora_4x12 \n Rosca direta barra em W_4x10 \n  Panturrilha leg press_4x12 \n Abdominal elevação quadril_4x10]
+             
+                 end
+            
+         id13 ======> id21((_))
+                id21-.-> id17 & id22 & id23
+                 
+                subgraph Ficha de treino ABC
+              id17[Ficha de treino ABC \n\n Treino A \nSupino reto com barra_3x6\n Supino inclinado com halteres_3x8 \n Cruxifixo na polia_3x10 \n Desenvolvimento com halteres_3x6 \n Elevação lateral na polia_3x10 \n Tríceps corda_3x10 \n Rosca francesa_3x12]
+              id22[Ficha de treino ABC \n\n Treino B \n Barra fixa3x6-8 \n Remada curvada_3x8-10 \n Pull Down_3x10-12 \n Encolhimento com barra_3x6-8 \n Cruxifixo invertido na polia_3x10 \n Rosca direta_3x10 \n  Rosca inversa_3x12]
+              id23[Ficha de treino ABC \n\n Treino C \n Agachamento livre_3x6-8 \n Leg press_3x8-10 \n Stiff_3x10-12 \n Passada_3x8x2 \n Mesa flexora_3x10-12 \n Cadeira extensora_3x10 \n Panturrilhas em pe_3x12-15 \n Panturrilhas sentada]      
+            end
+            
+        id13 =======> id18{{Ficha de treino ABCD}}
+            subgraph Ficha de treino ABCD
+            id18[Ficha de treino ABCD]
+            end
+                end
+                
+            
  ```
 
         

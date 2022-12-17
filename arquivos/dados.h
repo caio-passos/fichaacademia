@@ -4,7 +4,7 @@
 
 #ifndef FICHAACADEMIA_DADOS_H
 #define FICHAACADEMIA_DADOS_H
-
+int i;
  typedef struct dados_cliente{
     int *codigoCadastro;
     char *nome[51]; //fgets
