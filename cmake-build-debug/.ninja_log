@@ -1,0 +1,12 @@
+# ninja log v5
+0	80	6930987919217459	CMakeFiles/fichaacademia.dir/main.c.obj	6780201880751074
+3	75	6930991786650660	CMakeFiles/fichaacademia.dir/main.c.obj	6780201880751074
+2	66	6930996874857916	CMakeFiles/fichaacademia.dir/main.c.obj	6780201880751074
+3	66	6930997957573831	CMakeFiles/fichaacademia.dir/main.c.obj	6780201880751074
+1	278	6931006614253233	CMakeFiles/fichaacademia.dir/funcoes.c.obj	29fdc85497572238
+3	55	6931017378335952	CMakeFiles/fichaacademia.dir/funcoes.c.obj	29fdc85497572238
+4	66	6931017378454654	CMakeFiles/fichaacademia.dir/menu.c.obj	59c7837e421ad6b
+2	58	6931017829643264	CMakeFiles/fichaacademia.dir/funcoes.c.obj	29fdc85497572238
+4	67	6931017829736235	CMakeFiles/fichaacademia.dir/menu.c.obj	59c7837e421ad6b
+1	53	6931018601355288	CMakeFiles/fichaacademia.dir/funcoes.c.obj	29fdc85497572238
+2	54	6931019567956090	CMakeFiles/fichaacademia.dir/funcoes.c.obj	29fdc85497572238

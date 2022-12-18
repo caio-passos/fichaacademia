@@ -1,0 +1,3 @@
+C:/Users/User/Desktop/fichaacademia-0.1.2/arquivos/cmake-build-debug/CMakeFiles/fichaacademia.dir
+C:/Users/User/Desktop/fichaacademia-0.1.2/arquivos/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/User/Desktop/fichaacademia-0.1.2/arquivos/cmake-build-debug/CMakeFiles/rebuild_cache.dir
