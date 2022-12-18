@@ -3,7 +3,7 @@ project(fichaacademia C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(fichaacademia main.c funcoes.c menu.c dados.h linker.h)
+add_executable(fichaacademia main.c funcoes.c menu.c dados.h linker.h iniciante.c intermediario.c avancado.c)
 
 
 

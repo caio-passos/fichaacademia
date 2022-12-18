@@ -93,11 +93,13 @@ void verificar() {
     getchar();
 } while (op!=0);
 
-
-void print_elementos_struct(dados *p){    // CONSEGUI!!! é só usar ponteiros para printar cada um dos elementos. Vejam os links no Discord
-    printf("Nome %s\n", p->[i]nome);
-    printf("Idade %d\n", p->[i]Idade);
-    printf("Sexo %.s\n", p->[i]genero);
-    printf("Massa corporal %.2f\n", p-[i]>massaCorporal);
-    printf("altura %f\n", p->[i]altura);
-}
+    int print_struct(){
+        void print_elementos_struct(dados *p,
+                                    const char *dados) {    // CONSEGUI!!! é só usar ponteiros para printar cada um dos elementos. Vejam os links no Discord
+            printf("Nome %s\n", dados, p->nome);
+            printf("Idade %d\n", p->Idade);
+            printf("Sexo %.s\n", p->genero);
+            printf("Massa corporal %.2f\n", p->massaCorporal);
+            printf("altura %f\n", p->altura);
+        }
+    }

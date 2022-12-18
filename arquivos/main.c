@@ -10,7 +10,7 @@ int main(void) {
     printf("Bem vindo ao sistema automatizado de treino de musculacao\n");
     sleep(1);
     dadosAtleta();
-    void print_elementos_struct(dados *p);
+    print_struct();
     menu();
 
 //extern method
