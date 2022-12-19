@@ -1,0 +1,122 @@
+void iniciante_a(){
+    printf("*Ficha de treino AB*\n"
+           "\n"
+           "Treino A\n"
+           "\n"
+           "Aquecimento_10mins\n"
+           "Chest press_4x12\n"
+           "Cruxifixo reto com halters_4x10\n"
+           "Desenvolvimento halter sentado_4x10\n"
+           "Elevação lateral_4x10\n"
+           "Leg press 45_4x12\n"
+           "Cadeira extensora_4x12\n"
+           "Pulley Triceps_4x12");
+
+}
+void iniciante_b(){
+    printf("*Ficha de treino AB*\n"
+           "\n"
+           "Treino B\n"
+           "\n"
+           "Aquecimento_10mins\n"
+           "Pulley anterior aberto_4x12\n"
+           "Remada curvada unilateral_4x12\n"
+           "Encolhimento halter_4x10\n"
+           "Mesa Flexora_4x12\n"
+           "Cadeira Flexora_4x10\n"
+           "Cadeira abdutora_4x12\n"
+           "Rosca direta barra em W_4x10\n"
+           "Panturrilha leg press_4x12\n"
+           "Abdominal elevação quadril_4x10");
+}
+void intermediario_a(){
+    printf("Ficha de treino ABC\n"
+           "\n"
+           "Treino A\n\n"
+           "Supino reto com barra_3x6\n"
+           "Supino inclinado com halteres_3x8\n"
+           "Cruxifixo na polia_3x10\n"
+           "Desenvolvimento com halteres_3x6\n"
+           "Elevação lateral na polia_3x10\n"
+           "Tríceps corda_3x10\n"
+           "Rosca francesa_3x12");
+}
+void intermediario_b(){
+    printf("Ficha de treino ABC\n"
+           "\n"
+           "Treino B\n\n"
+           "Barra fixa3x6-8\n"
+           "Remada curvada_3x8-10\n"
+           "Pull Down_3x10-12\n"
+           "Encolhimento com barra_3x6-8\n"
+           "Cruxifixo invertido na polia_3x10\n"
+           "Rosca direta_3x10\n"
+           "Rosca inversa_3x12");
+}
+void intermediario_c(){
+    printf("Ficha de treino ABC\n"
+           "\n"
+           "Treino C\n"
+           "Agachamento livre_3x6-8\n"
+           "Leg press_3x8-10\n"
+           "Stiff_3x10-12\n"
+           "Passada_3x8x2\n"
+           "Mesa flexora_3x10-12\n"
+           "Cadeira extensora_3x10\n"
+           "Panturrilhas em pe_3x12-15\n"
+           "Panturrilhas sentada");
+}
+void avançado_a(){
+    printf("Ficha de treino ABCD\n"
+           "\n"
+           "Treino A\n"
+           "\n"
+           "Supino inclinado c/ barra4x10-12\n"
+           "Cruxifixo reto_3x10-12\n"
+           "Supino reto c/ barra_3x10x12\n"
+           "Voador_3x10-12\n"
+           "Francês deitado c/ halteres_3x10-12\n"
+           "Corda Cross_4x10-12\n"
+           "Tríceps testa 4x10-12");
+
+};
+void avançado_b(){
+    printf("Ficha de treino ABCD\n"
+           "\n"
+           "Treino B\n"
+           "\n"
+           "Supino inclinado c/ barra4x10-12\n"
+           "Cruxifixo reto_3x10-12\n"
+           "Supino reto c/ barra_3x10x12\n"
+           "Voador_3x10-12\n"
+           "Francês deitado c/ halteres_3x10-12\n"
+           "Corda Cross_4x10-12\n"
+           "Tríceps testa 4x10-12");
+};
+void avançado_c(){
+    printf("Ficha de treino ABCD\n"
+           "\n"
+           "Treino C\n"
+           "\n"
+           "Supino inclinado c/ barra4x10-12\n"
+           "Cruxifixo reto_3x10-12\n"
+           "Supino reto c/ barra_3x10x12\n"
+           "Voador_3x10-12\n"
+           "Francês deitado c/ halteres_3x10-12\n"
+           "Corda Cross_4x10-12\n"
+           "Tríceps testa 4x10-12");
+
+};
+void avançado_d(){
+    printf("Ficha de treino ABCD\n"
+           "\n"
+           "Treino D\n"
+           "\n"
+           "Supino inclinado c/ barra4x10-12\n"
+           "Cruxifixo reto_3x10-12\n"
+           "Supino reto c/ barra_3x10x12\n"
+           "Voador_3x10-12\n"
+           "Francês deitado c/ halteres_3x10-12\n"
+           "Corda Cross_4x10-12\n"
+           "Tríceps testa 4x10-12");
+}
