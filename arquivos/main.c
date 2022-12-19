@@ -225,7 +225,7 @@ int main() {
         system("cls");
         printf("Bem vindo ao sistema automatizado de treino de musculacao\n");
 
-        printf("\n1 - Cadastrar Aluno\n2 - verificar se ja possui cadastro\n3 - Inicia execicio\n");
+        printf("\n1 - Cadastrar Aluno\n2 - verificar se ja possui cadastro\n3 - Inicia exercicio\n");
         printf("\n0 - Sair");
         scanf("%i", &op);
         getchar();
