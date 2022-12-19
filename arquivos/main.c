@@ -1,90 +1,39 @@
-#include <unistd.h>
+﻿#include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #define RESET "\x1B[0m"
 #define BOLD "\x1B[1m"
-typedef struct dados_cliente dados_cliente;
-dados_cliente *t;
+typedef struct dados_cliente{
+    int codigoCadastro;
+    char nome[51]; //fgets
+    int Idade;
+    char genero[2];
+    float massaCorporal;
+    float altura;
+}dados;
+
+struct dados;
+void *t;
 
 int i;
 int j;
-int *r;
-
-
-
-
-void menu(void) {
-
-
-    int op,Nivel, codigo;
-    do {
-        system("cls");
-        printf("Bem vindo ao sistema automatizado de treino de musculacao\n");
-
-        printf("\n1 - Cadastrar Aluno\n2 - verificar se ja possui cadastro\n3 - Inicia execicio\n");
-        printf("\n0 - Sair");
-        scanf("%i", &op);
-        getchar();
-        switch (op) {
-            case 1:
-                dadosAtleta();
-                break;
-            case 2:
-                verificar();
-                break;
-            case 3:
-            inicio:
-                do {
-                    printf("\t\n-----------------------Tabela de niveis do aluno---------------------------------------\n");
-                    printf("\t\nDigite 1 para iniciante\n");
-                    printf("\t\nDigite 2 para intermediario\n");
-                    printf("\t\nDigite 3 para avancado\n");
-                    scanf("%d", &Nivel);
-                    if (Nivel!= 1 && Nivel!= 2 && Nivel != 3) {
-                        printf("\nErro: Insira uma opcao valida!");
-                    }
-
-                } while(Nivel !=1 && Nivel != 2 && Nivel  != 3);
-
-                if (Nivel == 1) {
-                    printf("Voce e um iniciante!!!");
-                }
-                if (codigo == -1){
-                    goto inicio;
-                }
-                if (Nivel == 2) {
-                    printf("Voce e um intermediario!!!");
-                }
-                if (codigo == -1){
-                    goto inicio;
-                }
-                if (Nivel == 3) {
-                    printf("Voce esta avancado!!!");
-                }
-                if (codigo == -1){
-                    goto inicio;
-                }
-                break;
-        }
-
-    } while (op != 0);
-}
+dados **r;
 
 void verificar() {
     char Nome[50];
     int op;
     int cod;
     int j;
+    struct dados_cliente *pDadosCliente = NULL;
     do {
         system("cls");
         printf("\nInsira um codigo de cadastro com tres digitos: ");
         scanf("%d", &cod);
 
-        for (int j = 0; j < 3; ++j) {
-            if (t[j]->codigoCadastro==cod) { //estudar
+        for (j = 0; j < 3; j++) {
+            if (pDadosCliente->codigoCadastro == cod) { //estudar
                 printf("usuario ja esta cadastrado");
-
 
             }
         }
@@ -98,11 +47,11 @@ void verificar() {
 }
 
 
-typedef struct dados dados;
 
 void print_elementos_struct(dados *p){
     // CONSEGUI!!! é só usar ponteiros para printar cada um dos elementos. Vejam os links no Discord
     int i;
+    typedef struct dados_cliente dados;
     printf("Nome %s\n", p->nome);
     printf("Idade %d\n", p->Idade);
     printf("Sexo %.s\n", p->genero);
@@ -111,23 +60,10 @@ void print_elementos_struct(dados *p){
     printf("Código de cadastro %d\n", p->codigoCadastro);
 }
 
-typedef struct dados_cliente{
-    int codigoCadastro;
-    char nome[51]; //fgets
-    int Idade;
-    char genero[2];
-    float massaCorporal;
-    float altura;
-}dados;
+
 
 void dadosAtleta(dados *r) {
-    //colocar abaixo dentro de um loop para receber multiplas structs diferentes de alunos diferentes.
-    //criando a variável dados_aluno do tipo struct
-    //struct dadosAtleta *p, dadosAtleta1;
-    //p = &dadosAtleta1;
-    //printf("\nInsira seu código de cadastro ou digite 0 para criar um novo:"); //implementar
-    //se a posição for nula ou 0, o programa direcionará para criar uma nova posição.
-    //fflush(stdin);
+
     printf("\nInsira um codigo de cadastro com tres digitos: "); //impplementar: isdigit(ch); Implementar Sizeof() para 3 caracteres;
     scanf("3%d", r->codigoCadastro);
     fflush(stdin);
@@ -280,8 +216,64 @@ void avançado_d(){
            "Tríceps testa 4x10-12");
 }
 
+int main() {
 
-int main(int argc, char *argv[]) {
+    struct dados_cliente;
 
+    int op,Nivel, codigo;
+    do {
+        system("cls");
+        printf("Bem vindo ao sistema automatizado de treino de musculacao\n");
+
+        printf("\n1 - Cadastrar Aluno\n2 - verificar se ja possui cadastro\n3 - Inicia execicio\n");
+        printf("\n0 - Sair");
+        scanf("%i", &op);
+        getchar();
+        switch (op) {
+            case 1:
+                dadosAtleta(*r);
+                break;
+            case 2:
+                verificar();
+                break;
+            case 3:
+            inicio:
+                do {
+                    printf("\t\n-----------------------Tabela de niveis do aluno---------------------------------------\n");
+                    printf("\t\nDigite 1 para iniciante\n");
+                    printf("\t\nDigite 2 para intermediario\n");
+                    printf("\t\nDigite 3 para avancado\n");
+                    scanf("%d", &Nivel);
+                    if (Nivel!= 1 && Nivel!= 2 && Nivel != 3) {
+                        printf("\nErro: Insira uma opcao valida!");
+                    }
+
+                } while(Nivel !=1 && Nivel != 2 && Nivel  != 3);
+
+                if (Nivel == 1) {
+                    printf("Voce e um iniciante!!!");
+                }
+                if (codigo == -1){
+                    goto inicio;
+                }
+                if (Nivel == 2) {
+                    printf("Voce e um intermediario!!!");
+                }
+                if (codigo == -1){
+                    goto inicio;
+                }
+                if (Nivel == 3) {
+                    printf("Voce esta avancado!!!");
+                }
+                if (codigo == -1){
+                    goto inicio;
+                }
+                break;
+        }
+
+    } while (op != 0);
     return 0;
 }
+
+
+
