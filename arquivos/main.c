@@ -39,32 +39,100 @@ void iniciante_B() {
 
 }
 
-int dias, contDias;
+int dias1, contDias1, dias2, contDias2, dias3, contDias3;
 void treino_iniciante() {
 
-    while (dias<7){
+    while (dias1<7){
 
-        if(dias==0||dias==2||dias==4){
-            printf("Dia de treino: %d / 20", contDias);
+        if(dias1==0||dias1==2||dias1==4){
+            printf("Dia de treino: %d / 20", contDias1);
             iniciante_A();
         }else{
-            if (dias==1||dias==3||dias==5){
-                printf("Dia de treino: %d / 20", contDias);
+            if (dias1==1||dias1==3||dias1==5){
+                printf("Dia de treino: %d / 20", contDias1);
                 iniciante_B();
             }else{
-                if(dias==6){
-                    dias=0;
+                if(dias1==6){
+                    dias1=0;
                 }
 
             }
         }
-        if (contDias == 20){
-            dias=8;
+        if (contDias1 == 20){
+            dias1=8;
         }
-        dias++;
-        contDias++;
+        dias1++;
+        contDias1++;
     }
 
+}
+
+void intermediario_A(){
+    printf("Ficha de treino ABC\n"
+           "\n"
+           "Treino A\n\n"
+           "Supino reto com barra_3x6\n"
+           "Supino inclinado com halteres_3x8\n"
+           "Cruxifixo na polia_3x10\n"
+           "Desenvolvimento com halteres_3x6\n"
+           "Elevação lateral na polia_3x10\n"
+           "Tríceps corda_3x10\n"
+           "Rosca francesa_3x12");
+}
+void intermediario_b(){
+    printf("Ficha de treino ABC\n"
+           "\n"
+           "Treino B\n\n"
+           "Barra fixa3x6-8\n"
+           "Remada curvada_3x8-10\n"
+           "Pull Down_3x10-12\n"
+           "Encolhimento com barra_3x6-8\n"
+           "Cruxifixo invertido na polia_3x10\n"
+           "Rosca direta_3x10\n"
+           "Rosca inversa_3x12");
+}
+void intermediario_c(){
+    printf("Ficha de treino ABC\n"
+           "\n"
+           "Treino C\n"
+           "Agachamento livre_3x6-8\n"
+           "Leg press_3x8-10\n"
+           "Stiff_3x10-12\n"
+           "Passada_3x8x2\n"
+           "Mesa flexora_3x10-12\n"
+           "Cadeira extensora_3x10\n"
+           "Panturrilhas em pe_3x12-15\n"
+           "Panturrilhas sentada");
+}
+// Segunda = 0 - terça = 1 - quarta = 2 - quinta = 3 - sexta = 4 - sab = 5 - domingo = 6
+
+void treino_intermediario(){
+    while (dias2<7) {
+
+        if (dias2==0||dias2==3){
+            printf("Dia de treino: %d / 20", contDias2);
+            intermediario_A();
+        } else{
+            if (dias2==1||dias2==4) {
+                printf("Dia de treino: %d / 20", contDias2);
+                intermediario_b();
+            }else{
+                if (dias2==2||dias2==5){
+                    printf("Dia de treino: %d / 20", contDias2);
+                    intermediario_c();
+                }else {
+                    if (dias2 == 6) {
+                        dias2 = 0;
+                    }
+                }
+            }
+        }
+        if (contDias2==20){
+            dias2=8;
+        }
+        contDias2++;
+        dias2++;
+    }
 }
 dados atletas[100];
 
