@@ -10,11 +10,69 @@ typedef struct dados_cliente{
     float massaCorporal;
     float altura;
 }dados;
+void iniciante_A(){
+    printf("Ficha de treino AB*\n"
+           "Treino A\n"
+           "Aquecimento_10mins\n"
+           "Chest press_4x12\n"
+           "Cruxifixo reto com halters_4x10\n"
+           "Desenvolvimento halter sentado_4x10\n"
+           "Elevacao lateral_4x10\n"
+           "Leg press 45_4x12\n"
+           "Cadeira extensora_4x12\n"
+           "Pulley Triceps_4x12\n");
+}
 
+void iniciante_B() {
+    printf("Ficha de treino AB\n\n"
+           "Treino B\n"
+           "Aquecimento_10mins\n"
+           "Pulley anterior aberto_4x12\n"
+           "Remada curvada unilateral_4x12\n"
+           "Encolhimento halter_4x10\n"
+           "Mesa Flexora_4x12\n"
+           "Cadeira Flexora_4x10\n"
+           "Cadeira abdutora_4x12\n"
+           "Rosca direta barra em W_4x10\n"
+           "Panturrilha leg press_4x12\n"
+           "Abdominal elevacao quadril_4x10\n");
 
+}
+
+int dias, contDias;
+void treino_iniciante() {
+
+    while (dias<7){
+
+        if(dias==0||dias==2||dias==4){
+            printf("Dia de treino: %d / 20", contDias);
+            iniciante_A();
+        }else{
+            if (dias==1||dias==3||dias==5){
+                printf("Dia de treino: %d / 20", contDias);
+                iniciante_B();
+            }else{
+                if(dias==6){
+                    dias=0;
+                }
+
+            }
+        }
+        if (contDias == 20){
+            dias=8;
+        }
+        dias++;
+        contDias++;
+    }
+
+}
 dados atletas[100];
 
 int posicaoAtleta = 0;
+
+int localizarPosicaoAtleta(int i) {
+    return 0;
+}
 
 void dadosAtleta() {
     //colocar abaixo dentro de um loop para receber multiplas structs diferentes de alunos diferentes.
@@ -200,6 +258,9 @@ void menu() {
 }
 
 
+void inicializar() {
+
+}
 
 int main() {
     inicializar();
