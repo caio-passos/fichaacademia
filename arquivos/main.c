@@ -226,9 +226,10 @@ int main() {
         printf("Bem vindo ao sistema automatizado de treino de musculacao\n");
 
         printf("\n1 - Cadastrar Aluno\n2 - verificar se ja possui cadastro\n3 - Inicia exercicio\n");
-        printf("\n0 - Sair");
+        printf("\n0 - Sair\n");
         scanf("%i", &op);
         getchar();
+        fflush(stdin);
         switch (op) {
             case 1:
                 dadosAtleta(*r);
@@ -246,6 +247,7 @@ int main() {
                     scanf("%d", &Nivel);
                     if (Nivel!= 1 && Nivel!= 2 && Nivel != 3) {
                         printf("\nErro: Insira uma opcao valida!");
+                        goto inicio;
                     }
 
                 } while(Nivel !=1 && Nivel != 2 && Nivel  != 3);
