@@ -11,7 +11,7 @@
     (Nome, Idade, sexo, massa corporal, altura, objetivo de treino, divisão de treinos)
 
 ```mermaid
-    classDiagram
+        classDiagram
     Ficha <|-- DadosPessoais
     Ficha <|-- objetivoDeTreino
     Ficha <|-- divisãoDeTreinos
@@ -59,10 +59,11 @@
     para efetuar a progressão de cargas:  
     aumento de: 5% para membros superiores, 10% para membros inferiores. Sendo adicionadas ao registro de carga
     de cada exercício do banco de dados de cada aluno específicamente. 
-```mermaid    
+```mermaid  
+
     flowchart TB
         classDef default fill:#404040,stroke:#B3B3B3,stroke-width:3px;   
-           
+            
 
     subgraph Menu
     direction TB
@@ -89,7 +90,7 @@
     sexo -.-> dadosstruct
     massacorporal -.-> dadosstruct
     altura -.-> dadosstruct
-    end
+    end 
 
     nome[/Input: +char Nome/]
     idade[/Input: +int idade/]
@@ -206,7 +207,7 @@
                                 avançadotreinoA[Ficha de treino ABCD \n\n Treino A \n\n Supino inclinado c/ barra4x10-12 \n Cruxifixo reto_3x10-12 \n Supino reto c/ barra_3x10x12 \n Voador_3x10-12 \n Francês deitado c/ halteres_3x10-12 \n Corda Cross_4x10-12 \n Tríceps testa 4x10-12]
                                 avançadotreinoB[Ficha de treino ABCD \n\n Treino B \n\n Supino inclinado c/ barra4x10-12 \n Cruxifixo reto_3x10-12 \n Supino reto c/ barra_3x10x12 \n Voador_3x10-12 \n Francês deitado c/ halteres_3x10-12 \n Corda Cross_4x10-12 \n Tríceps testa 4x10-12]
                                 avançadotreinoC[Ficha de treino ABCD \n\n Treino C \n\n Supino inclinado c/ barra4x10-12 \n Cruxifixo reto_3x10-12 \n Supino reto c/ barra_3x10x12 \n Voador_3x10-12 \n Francês deitado c/ halteres_3x10-12 \n Corda Cross_4x10-12 \n Tríceps testa 4x10-12]
-                                avançadotreinoD[Ficha de treino ABCD \n\n Treino C \n\n Supino inclinado c/ barra4x10-12 \n Cruxifixo reto_3x10-12 \n Supino reto c/ barra_3x10x12 \n Voador_3x10-12 \n Francês deitado c/ halteres_3x10-12 \n Corda Cross_4x10-12 \n Tríceps testa 4x10-12]
+                                avançadotreinoD[Ficha de treino ABCD \n\n Treino D \n\n Supino inclinado c/ barra4x10-12 \n Cruxifixo reto_3x10-12 \n Supino reto c/ barra_3x10x12 \n Voador_3x10-12 \n Francês deitado c/ halteres_3x10-12 \n Corda Cross_4x10-12 \n Tríceps testa 4x10-12]
                                        
                                 end
                                    
@@ -242,8 +243,8 @@
                                                 end
                            
               end
-                
-       
+                    
+         
  ```
 
         
