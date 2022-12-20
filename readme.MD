@@ -61,68 +61,189 @@
     de cada exercício do banco de dados de cada aluno específicamente. 
 ```mermaid    
     flowchart TB
+        classDef default fill:#404040,stroke:#B3B3B3,stroke-width:3px;   
+           
+
     subgraph Menu
     direction TB
     Start ==> id1[print: Bem vindo ao sistema automatizado de treino de musculação]
     id1 ==> id2(Insira seu código de cadastro ou digite 0 para criar um novo)
-    id2 ==>id3
-    id3[/Input: *numero de cadastro* ou 0 para novo cadastro/]
+    id2 ==>opçãocadastro
+    opçãocadastro[/Input: *numero de cadastro* ou 0 para novo cadastro/]
     end
-    id3 ==> id4
-    id4{{Verificação de banco de dados pré-existente}}
-    b -..- id4
+    opçãocadastro ==> verificaçãodados
+    verificaçãodados{{Verificação de banco de dados pré-existente}}
+    dadosstruct -..- verificaçãodados
    
-    id4 ==verificaçao==> id14((teste))
-   
-   
-   id14==> id5
-   subgraph Dados
-    id5{Registro de novo cadastro}
-    id5 ==> id6   
-    id6[/input: Armazenamento de dados em struct\]
-    b[(Dados do usuário em Struct)]
-    id6 -.-> id8 & id9 & id10 & id11 & id12
-    id8 -.-> b
-    id9 -.-> b
-    id10 -.-> b
-    id11 -.-> b
-    id12 -.-> b
-    end
-  
+    verificaçãodados ==verificaçao==> teste
     
-    id8[/Input: +char Nome/]
-    id9[/Input: +int idade/]
-    id10[/Input: +char sexo/]
-    id11[/Input: +float.1f massa corporal/]
-    id12[/Input: +float.2f altura/]
-     
-    id4 ==> id13((Preenchido)) 
+      teste==> novocadastro
+   subgraph Dados
+    novocadastro{Registro de novo cadastro}
+    novocadastro ==> inputdados   
+    inputdados[/input: Armazenamento de dados em struct\]
+    dadosstruct[(Dados do usuário em Struct)]
+    inputdados -.-> nome & idade & sexo & massacorporal & altura
+    nome -.-> dadosstruct
+    idade -.-> dadosstruct
+    sexo -.-> dadosstruct
+    massacorporal -.-> dadosstruct
+    altura -.-> dadosstruct
+    end
 
+    nome[/Input: +char Nome/]
+    idade[/Input: +int idade/]
+    sexo[/Input: +char sexo/]
+    massacorporal[/Input: +float.1f massa corporal/]
+    altura[/Input: +float.2f altura/]
+
+    verificaçãodados ==> preenchido((Preenchido)) 
              subgraph Loop  
-                id13 =======> id20((_))
-             subgraph Ficha de treino AB
-             id20 -.-> id15 & id16
-             id15[*Ficha de treino AB*\n\n Treino A \n\nAquecimento_10mins\n Chest press_4x12 \n Cruxifixo reto com halters_4x10 \n Desenvolvimento halter sentado_4x10 \n Elevação lateral_4x10 \n Leg press 45_4x12 \n Cadeira extensora_4x12 \n Pulley Triceps_4x12]
-             id16[*Ficha de treino AB*\n\n Treino B \n\nAquecimento_10mins\n Pulley anterior aberto_4x12 \n Remada curvada unilateral_4x12 \n Encolhimento halter_4x10 \n Mesa Flexora_4x12 \n Cadeira Flexora_4x10 \n Cadeira abdutora_4x12 \n Rosca direta barra em W_4x10 \n  Panturrilha leg press_4x12 \n Abdominal elevação quadril_4x10]
-             
-                 end
+             direction TB
+                preenchido =======> conectoriniciante((_))
+             subgraph Ficha de treino AB \n iniciante
+        
+            subgraph sequencia iniciante  
+            direction LR 
             
-         id13 ======> id21((_))
-                id21-.-> id17 & id22 & id23
-                 
-                subgraph Ficha de treino ABC
-              id17[Ficha de treino ABC \n\n Treino A \nSupino reto com barra_3x6\n Supino inclinado com halteres_3x8 \n Cruxifixo na polia_3x10 \n Desenvolvimento com halteres_3x6 \n Elevação lateral na polia_3x10 \n Tríceps corda_3x10 \n Rosca francesa_3x12]
-              id22[Ficha de treino ABC \n\n Treino B \n Barra fixa3x6-8 \n Remada curvada_3x8-10 \n Pull Down_3x10-12 \n Encolhimento com barra_3x6-8 \n Cruxifixo invertido na polia_3x10 \n Rosca direta_3x10 \n  Rosca inversa_3x12]
-              id23[Ficha de treino ABC \n\n Treino C \n Agachamento livre_3x6-8 \n Leg press_3x8-10 \n Stiff_3x10-12 \n Passada_3x8x2 \n Mesa flexora_3x10-12 \n Cadeira extensora_3x10 \n Panturrilhas em pe_3x12-15 \n Panturrilhas sentada]      
-            end
-            
-        id13 =======> id18{{Ficha de treino ABCD}}
-            subgraph Ficha de treino ABCD
-            id18[Ficha de treino ABCD]
-            end
+                inicianteA((A = 0))
+                inicianteB((B = 1))
+               
                 end
-                
+             conectoriniciante -.-> iniciantetreinoA & iniciantetreinoB
+             iniciantetreinoA[*Ficha de treino AB*\n\n Treino A \n\nAquecimento_10mins\n Chest press_4x12 \n Cruxifixo reto com halters_4x10 \n Desenvolvimento halter sentado_4x10 \n Elevação lateral_4x10 \n Leg press 45_4x12 \n Cadeira extensora_4x12 \n Pulley Triceps_4x12]
+             iniciantetreinoB[*Ficha de treino AB*\n\n Treino B \n\nAquecimento_10mins\n Pulley anterior aberto_4x12 \n Remada curvada unilateral_4x12 \n Encolhimento halter_4x10 \n Mesa Flexora_4x12 \n Cadeira Flexora_4x10 \n Cadeira abdutora_4x12 \n Rosca direta barra em W_4x10 \n  Panturrilha leg press_4x12 \n Abdominal elevação quadril_4x10]
+             iniciantetreinoA-.-> inicianteA
+            inicianteA -.-> quartainiciante & sextainiciante
+            inicianteA --> segundainiciante
+            iniciantetreinoB -.-> inicianteB
+            inicianteB -.->terçainiciante & quintainiciante & sabadoiniciante
             
+            
+            
+            subgraph Dias iniciante
+            direction LR 
+            segundainiciante[segunda]
+            terçainiciante[terça]
+            quartainiciante[quarta]
+            quintainiciante[quinta]
+            sextainiciante[sexta]
+            sabadoiniciante[sabado]
+            
+          
+              
+           end
+            segundainiciante ==> terçainiciante ==> quartainiciante ==> quintainiciante ==> sextainiciante ==> sabadoiniciante ==> domingoiniciante
+              
+                 subgraph Dia de descanso 
+              direction RL 
+              domingoiniciante{{C = Dia reset}}
+              domingoiniciante == Reset ==> inicianteA 
+                end
+                 end
+                 
+         
+         preenchido ======> conectorintermediario((_))
+                conectorintermediario-..-> intermediariotreinoA & intermediariotreinoB & intermediariotreinoC
+                
+                subgraph Ficha de treino ABC \n  Intermediário
+                direction TB
+                conectorintermediario((_))
+                subgraph sequencia intermediario
+                        direction TB  
+                        
+                        intermediario1((B = 1))
+                        intermediario0((A = 0))
+                        
+                        intermediario2((C = 2))
+                        
+                    end 
+                
+                subgraph Dias intermediario
+                direction RL
+                        segundaintermediario[segunda]
+                        terçaintermediario[terça] 
+                        quartaintermediario[quarta]
+                        quintaintermediario[quinta]
+                        sextaintermediario[sexta]
+                        sabadointermediario[sabado]
+                        domingointermediario[domingo descanso]
+                        segundaintermediario ===> terçaintermediario ===> quartaintermediario ===> quintaintermediario ===> sextaintermediario ===> sabadointermediario ===> domingointermediario         
+                       end
+                        
+                       subgraph \n\ndia de descanso
+                       intermediario3{{D = Dia Reset}}     
+                       
+                       end
+                         
+                            
+              intermediariotreinoA[Ficha de treino ABC \n\n Treino A \n\n Supino reto com barra_3x6\n Supino inclinado com halteres_3x8 \n Cruxifixo na polia_3x10 \n Desenvolvimento com halteres_3x6 \n Elevação lateral na polia_3x10 \n Tríceps corda_3x10 \n Rosca francesa_3x12]
+              intermediariotreinoB[Ficha de treino ABC \n\n Treino B \n\n Barra fixa3x6-8 \n Remada curvada_3x8-10 \n Pull Down_3x10-12 \n Encolhimento com barra_3x6-8 \n Cruxifixo invertido na polia_3x10 \n Rosca direta_3x10 \n  Rosca inversa_3x12]
+              intermediariotreinoC[Ficha de treino ABC \n\n Treino C \n\n Agachamento livre_3x6-8 \n Leg press_3x8-10 \n Stiff_3x10-12 \n Passada_3x8x2 \n Mesa flexora_3x10-12 \n Cadeira extensora_3x10 \n Panturrilhas em pe_3x12-15 \n Panturrilhas sentada]
+              
+              intermediariotreinoA -...-> intermediario0
+              intermediariotreinoB -...-> intermediario1
+              intermediariotreinoC -...-> intermediario2
+              domingointermediario -...-> intermediario3
+              
+              intermediario0 -.-> segundaintermediario
+              intermediario1 -.-> terçaintermediario
+              intermediario2 -.-> quartaintermediario
+              intermediario0 -.-> quintaintermediario
+              intermediario1 -.-> sextaintermediario
+              intermediario2 -.-> sabadointermediario
+              intermediario3 == Reset ==> intermediario0 
+                    
+                end  
+             
+                        
+                   preenchido =======> conectoravançado((_)) 
+                   
+                     
+                   subgraph Ficha de treino ABCD \n avançado 
+                       avançadotreinoA{{Ficha de treino ABCD}}
+                       conectoravançado -.-> avançadotreinoA & avançadotreinoB & avançadotreinoC & avançadotreinoD
+                                avançadotreinoA[Ficha de treino ABCD \n\n Treino A \n\n Supino inclinado c/ barra4x10-12 \n Cruxifixo reto_3x10-12 \n Supino reto c/ barra_3x10x12 \n Voador_3x10-12 \n Francês deitado c/ halteres_3x10-12 \n Corda Cross_4x10-12 \n Tríceps testa 4x10-12]
+                                avançadotreinoB[Ficha de treino ABCD \n\n Treino B \n\n Supino inclinado c/ barra4x10-12 \n Cruxifixo reto_3x10-12 \n Supino reto c/ barra_3x10x12 \n Voador_3x10-12 \n Francês deitado c/ halteres_3x10-12 \n Corda Cross_4x10-12 \n Tríceps testa 4x10-12]
+                                avançadotreinoC[Ficha de treino ABCD \n\n Treino C \n\n Supino inclinado c/ barra4x10-12 \n Cruxifixo reto_3x10-12 \n Supino reto c/ barra_3x10x12 \n Voador_3x10-12 \n Francês deitado c/ halteres_3x10-12 \n Corda Cross_4x10-12 \n Tríceps testa 4x10-12]
+                                avançadotreinoD[Ficha de treino ABCD \n\n Treino C \n\n Supino inclinado c/ barra4x10-12 \n Cruxifixo reto_3x10-12 \n Supino reto c/ barra_3x10x12 \n Voador_3x10-12 \n Francês deitado c/ halteres_3x10-12 \n Corda Cross_4x10-12 \n Tríceps testa 4x10-12]
+                                       
+                                end
+                                   
+                                   subgraph sequencia avançado
+                                   
+                                   avançadotreinoA -.-> avançado0
+                                      avançadotreinoB -.-> avançado1
+                                      avançadotreinoC -.-> avançado2  
+                                      avançadotreinoD -.-> avançado3 
+                                   avançado0((A = 0))
+                                        avançado1((B = 1))
+                                        avançado2((C = 2))
+                                        avançado3((D = 3))
+                                        end 
+                                   
+                                       
+                                    subgraph Dias avançado
+                                    avançado0 -..-> segundaavançado[Segunda]
+                                    avançado1 -..-> terçaavançado[Terça]
+                                    avançado2 -..-> quartaavançado[Quarta]
+                                    avançado3 -..-> quintaavançado[Quinta]
+                                    avançado0 -..-> sextaavançado[Sexta]
+                                    avançado2 -..-> sabadoavançado[Sábado]
+                                     end
+                                     
+                                     segundaavançado ===> terçaavançado===> quartaavançado ===> quintaavançado ===> sextaavançado ===> sabadoavançado ===> domingoavançado
+                                        
+                                        subgraph Dia de descanso
+                                            domingoavançado[6º dia de treino da semana] 
+                                            domingoavançado ==> avançado4{{E = Dia Reset}} 
+                                            avançado4 == Reset ==> avançado0
+                                            
+                                                end
+                           
+              end
+                
+       
  ```
 
         
