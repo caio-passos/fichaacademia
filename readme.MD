@@ -52,13 +52,7 @@
                 Em tipos de treino ABCD: Segunda (A), Terça(B), Quarta(C), Quinta(D), Sexta(A), Sábado(B), Domingo(C);
                     (alternando subsequentemente os próximos dias);
 
-    A cada três dias, o atleta informará novamente sua massa corporal. (input de informação, float)
-    
-    E a cada fim de treino, 
-    o atleta poderá informar em quais exercícios encontrou facilidade na execução das séries,
-    para efetuar a progressão de cargas:  
-    aumento de: 5% para membros superiores, 10% para membros inferiores. Sendo adicionadas ao registro de carga
-    de cada exercício do banco de dados de cada aluno específicamente. 
+   
 ```mermaid    
     flowchart TB
         classDef default fill:#404040,stroke:#B3B3B3,stroke-width:3px;   
