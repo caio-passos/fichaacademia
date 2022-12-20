@@ -178,38 +178,38 @@ void treino_intermediario(){
                             if (fimTreino2 != 1) {
                                 printf("\ntermine o seu treino\n");
 
-                    } else {
-                        if (dias2 == 2 || dias2 == 5 && fimTreino2 == 1) {
-                            fimTreino2 = 0;
-                            printf("\nDigite 1 para comecar o treino de hoje!: \n");
-                            while (inicioTreino2 != 1) {
-                                scanf("%d", &inicioTreino2);
-                            }
+                            } else {
+                                if (dias2 == 2 || dias2 == 5 && fimTreino2 == 1) {
+                                    fimTreino2 = 0;
+                                    printf("\nDigite 1 para comecar o treino de hoje!: \n");
+                                    while (inicioTreino2 != 1) {
+                                        scanf("%d", &inicioTreino2);
+                                    }
 
-                            printf("\nDia de treino: %d / 20\n", contDias2);
-                            intermediario_c();
-                            dias2++;
-                            contDias2++;
+                                    printf("\nDia de treino: %d / 20\n", contDias2);
+                                    intermediario_c();
+                                    dias2++;
+                                    contDias2++;
 
-                            while (fimTreino2 != 1) {
-                                printf("\n\nDigite 1 quando o treino for finalizado\n");
-                                scanf("%d", &fimTreino2);
-                                if (fimTreino2 != 1) {
-                                    printf("\ntermine o seu treino\n");
+                                    while (fimTreino2 != 1) {
+                                        printf("\n\nDigite 1 quando o treino for finalizado\n");
+                                        scanf("%d", &fimTreino2);
+                                        if (fimTreino2 != 1) {
+                                            printf("\ntermine o seu treino\n");
+                                        }
+                                    }
+                                    if (dias2 == 6) {
+                                        dias2 = 0;
+                                    }
                                 }
-                        }
-                            if (dias2 == 6) {
-                                dias2 = 0;
                             }
+                        }
+                        if (contDias2 == 20) {
+                            dias2 = 8;
                         }
                     }
                 }
-                if (contDias2 == 20) {
-                    dias2 = 8;
-                }
-            }
-        }
-    }}
+            }}
     }
 }
 void avancado_a(){
