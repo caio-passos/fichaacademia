@@ -9,7 +9,9 @@ typedef struct dados_cliente{
     char genero[2];
     float massaCorporal;
     float altura;
+    int ativo;
 }dados;
+
 void iniciante_A(){
     printf("Ficha de treino AB*\n"
            "Treino A\n"
@@ -39,32 +41,62 @@ void iniciante_B() {
 
 }
 
-int dias1, contDias1, dias2, contDias2, dias3, contDias3;
+int dias1, contDias1, dias2, contDias2, inicioTreino1, fimTreino1, fimTreino2, inicioTreino2;
 void treino_iniciante() {
 
-    while (dias1<7){
+    while (contDias1 < 20) {
 
-        if(dias1==0||dias1==2||dias1==4){
-            printf("Dia de treino: %d / 20", contDias1);
+        if (dias1 == 0 || dias1 == 2 || dias1 == 4 ) {
+            fimTreino1=0;
+            printf("\nDigite 1 para comecar o treino de hoje!: \n");
+            while (inicioTreino1 != 1) {
+                scanf("%d", &inicioTreino1);
+            }
+            printf("\nDia de treino: %d / 20\n", contDias1);
             iniciante_A();
-        }else{
-            if (dias1==1||dias1==3||dias1==5){
-                printf("Dia de treino: %d / 20", contDias1);
-                iniciante_B();
-            }else{
-                if(dias1==6){
-                    dias1=0;
+            dias1++;
+            contDias1++;
+
+            while (fimTreino1 != 1) {
+                printf("\n\nDigite 1 quando o treino for finalizado\n");
+                scanf("%d", &fimTreino1);
+                if (fimTreino1 != 1) {
+                    printf("\ntermine o seu treino\n");
+
+                }
+                if (dias1 == 1 || dias1 == 3 || dias1 == 5 && fimTreino1 == 1) {
+                    fimTreino1=0;
+                    printf("\nDigite 1 para comecar o treino de hoje!: \n");
+                    while (inicioTreino1 != 1) {
+                        scanf("%d", &inicioTreino1);
+
+                    }
+                    printf("\nDia de treino: %d / 20\n", contDias1);
+                    iniciante_B();
+                    dias1++;
+                    contDias1++;
+
+                    while (fimTreino1 != 1) {
+                        printf("\n\nDigite 1 quando o treino for finalizado\n");
+                        scanf("%d", &fimTreino1);
+                        if (fimTreino1 != 1) {
+                            printf("\ntermine o seu treino\n");
+
+                        } else {
+                            if (dias1 == 6) {
+                                dias1 = 0;
+                            }
+
+                        }
+                    }
+                    if (contDias1 == 20) {
+                        dias1 = 8;
+                    }
                 }
 
             }
         }
-        if (contDias1 == 20){
-            dias1=8;
-        }
-        dias1++;
-        contDias1++;
     }
-
 }
 
 void intermediario_A(){
@@ -106,40 +138,284 @@ void intermediario_c(){
 }
 // Segunda = 0 - terça = 1 - quarta = 2 - quinta = 3 - sexta = 4 - sab = 5 - domingo = 6
 
-void treino_intermediario(){
-    while (dias2<7) {
 
-        if (dias2==0||dias2==3){
+void treino_intermediario(){
+    while (contDias2<20) {
+
+        if (dias2 == 0 || dias2 == 3) {
+            fimTreino2 = 0;
+            printf("\nDigite 1 para comecar o treino de hoje!: \n");
+            while (inicioTreino2 != 1) {
+                scanf("%d", &inicioTreino2);
+            }
             printf("Dia de treino: %d / 20", contDias2);
             intermediario_A();
-        } else{
-            if (dias2==1||dias2==4) {
-                printf("Dia de treino: %d / 20", contDias2);
-                intermediario_b();
-            }else{
-                if (dias2==2||dias2==5){
-                    printf("Dia de treino: %d / 20", contDias2);
-                    intermediario_c();
-                }else {
-                    if (dias2 == 6) {
-                        dias2 = 0;
+            dias2++;
+            contDias2++;
+
+            while (fimTreino2 != 1) {
+                printf("\n\nDigite 1 quando o treino for finalizado\n");
+                scanf("%d", &fimTreino2);
+                if (fimTreino2 != 1) {
+                    printf("\ntermine o seu treino\n");
+                }else{
+
+                    if (dias2 == 1 || dias2 == 4 && fimTreino2 == 1) {
+                        fimTreino2 = 0;
+                        printf("\nDigite 1 para comecar o treino de hoje!: \n");
+                        while (inicioTreino2 != 1) {
+                            scanf("%d", &inicioTreino2);
+                        }
+
+                        printf("Dia de treino: %d / 20", contDias2);
+                        intermediario_b();
+                        dias2++;
+                        contDias2++;
+
+                        while (fimTreino2 != 1) {
+                            printf("\n\nDigite 1 quando o treino for finalizado\n");
+                            scanf("%d", &fimTreino2);
+                            if (fimTreino2 != 1) {
+                                printf("\ntermine o seu treino\n");
+
+                    } else {
+                        if (dias2 == 2 || dias2 == 5 && fimTreino2 == 1) {
+                            fimTreino2 = 0;
+                            printf("\nDigite 1 para comecar o treino de hoje!: \n");
+                            while (inicioTreino2 != 1) {
+                                scanf("%d", &inicioTreino2);
+                            }
+
+                            printf("\nDia de treino: %d / 20\n", contDias2);
+                            intermediario_c();
+                            dias2++;
+                            contDias2++;
+
+                            while (fimTreino2 != 1) {
+                                printf("\n\nDigite 1 quando o treino for finalizado\n");
+                                scanf("%d", &fimTreino2);
+                                if (fimTreino2 != 1) {
+                                    printf("\ntermine o seu treino\n");
+                                }
+                        }
+                            if (dias2 == 6) {
+                                dias2 = 0;
+                            }
+                        }
                     }
+                }
+                if (contDias2 == 20) {
+                    dias2 = 8;
                 }
             }
         }
-        if (contDias2==20){
-            dias2=8;
-        }
-        contDias2++;
-        dias2++;
+    }}
     }
 }
-dados atletas[100];
+void avancado_a(){
+    printf("Ficha de treino ABCD\n"
+           "\n"
+           "Treino A\n"
+           "\n"
+           "Supino inclinado c/ barra4x10-12\n"
+           "Cruxifixo reto_3x10-12\n"
+           "Supino reto c/ barra_3x10x12\n"
+           "Voador_3x10-12\n"
+           "Francês deitado c/ halteres_3x10-12\n"
+           "Corda Cross_4x10-12\n"
+           "Tríceps testa 4x10-12");
 
-int posicaoAtleta = 0;
+};
+void avancado_b(){
+    printf("Ficha de treino ABCD\n"
+           "\n"
+           "Treino B\n"
+           "\n"
+           "Supino inclinado c/ barra4x10-12\n"
+           "Cruxifixo reto_3x10-12\n"
+           "Supino reto c/ barra_3x10x12\n"
+           "Voador_3x10-12\n"
+           "Francês deitado c/ halteres_3x10-12\n"
+           "Corda Cross_4x10-12\n"
+           "Tríceps testa 4x10-12");
+};
+void avancado_c(){
+    printf("Ficha de treino ABCD\n"
+           "\n"
+           "Treino C\n"
+           "\n"
+           "Supino inclinado c/ barra4x10-12\n"
+           "Cruxifixo reto_3x10-12\n"
+           "Supino reto c/ barra_3x10x12\n"
+           "Voador_3x10-12\n"
+           "Francês deitado c/ halteres_3x10-12\n"
+           "Corda Cross_4x10-12\n"
+           "Tríceps testa 4x10-12");
 
-int localizarPosicaoAtleta(int i) {
-    return 0;
+};
+void avancado_d(){
+    printf("Ficha de treino ABCD\n"
+           "\n"
+           "Treino D\n"
+           "\n"
+           "Supino inclinado c/ barra4x10-12\n"
+           "Cruxifixo reto_3x10-12\n"
+           "Supino reto c/ barra_3x10x12\n"
+           "Voador_3x10-12\n"
+           "Francês deitado c/ halteres_3x10-12\n"
+           "Corda Cross_4x10-12\n"
+           "Tríceps testa 4x10-12");
+}
+
+void treino_avancado(){
+    int treinoA=1,treinoB=2, treinoC=3, treinoD=4, treinoAtual=1, fimTreino=0, inicioTreino=0, reset=0, contdias3=0;
+
+    // treino A
+
+    while (contdias3<20) {
+
+        if (treinoAtual == 1) {
+            fimTreino = 0;
+            printf("Digite 1 para comecar o treino de hoje!: ");
+            while (inicioTreino != 1) {
+                scanf("%d", &inicioTreino);
+            }
+
+            avancado_a();
+            printf("\nDia de treino: %d / 20\n", contdias3);
+            contdias3++;
+
+            while (fimTreino != 1) {
+                printf("\n\nDigite 1 quando o treino for finalizado\n");
+                scanf("%d", &fimTreino);
+                if (fimTreino != 1) {
+                    printf("\ntermine o seu treino\n");
+                } else {
+                    reset = reset + treinoAtual;
+                    treinoAtual = 2;
+
+                }
+            }
+            // treino B
+        }
+        if (treinoAtual == 2 && fimTreino == 1) {
+            fimTreino = 0;
+            system("cls");
+            printf("Digite 1 para comecar o treino de hoje!: ");
+            while (inicioTreino != 1) {
+                scanf("%d", &inicioTreino);
+            }
+
+            avancado_b();
+            printf("\nDia de treino: %d / 20\n", contdias3);
+            contdias3++;
+
+            while (fimTreino != 1) {
+                printf("\n\nDigite 1 quando o treino for finalizado\n");
+                scanf("%d", &fimTreino);
+                if (fimTreino != 1) {
+                    printf("\ntermine o seu treino\n");
+                } else {
+                    reset = reset + treinoAtual;
+                    treinoAtual = 3;
+                }
+            }
+            // treino C
+        }
+        if (treinoAtual == 3 && fimTreino == 1) {
+            fimTreino = 0;
+            system("cls");
+            printf("Digite 1 para comecar o treino de hoje!: ");
+            while (inicioTreino != 1) {
+                scanf("%d", &inicioTreino);
+            }
+
+            avancado_c();
+            printf("\nDia de treino: %d / 20\n", contdias3);
+            contdias3++;
+
+            while (fimTreino != 1) {
+                printf("\n\nDigite 1 quando o treino for finalizado\n");
+                scanf("%d", &fimTreino);
+                if (fimTreino != 1) {
+                    printf("\ntermine o seu treino\n");
+                } else {
+                    reset = reset + treinoAtual;
+                    treinoAtual = 4;
+                }
+            }
+
+        }
+        if (treinoAtual == 4 && fimTreino == 1) {
+            fimTreino = 0;
+            system("cls");
+            printf("Digite 1 para comecar o treino de hoje!: ");
+            while (inicioTreino != 1) {
+                scanf("%d", &inicioTreino);
+            }
+
+            avancado_d();
+            printf("\nDia de treino: %d / 20\n", contdias3);
+            contdias3++;
+
+            while (fimTreino != 1) {
+                printf("\n\nDigite 1 quando o treino for finalizado\n");
+                scanf("%d", &fimTreino);
+                if (fimTreino != 1) {
+                    printf("\ntermine o seu treino\n");
+                } else {
+                    reset = reset + treinoAtual;
+                    treinoAtual = 1;
+                }
+            }
+
+        }
+        if (reset == 10){
+            treinoAtual=1;
+
+        }
+
+    }
+
+}
+
+
+dados atletas[5];
+
+int localizarPosicaoAtleta(int cSet){
+    int s=0;
+    while (atletas[s].codigoCadastro != cSet && s<4){
+        s++;
+    }
+    if (atletas[s].codigoCadastro == cSet){
+        return s; //retorna a posição do setor
+    }
+
+    return -9; //retorna -9 para indicar que o setor não foi localizado
+}
+
+void consultaratleta(){
+    int codigo, pSetor, f;
+
+    system("cls");
+    printf("Consultar ficha do aluno\n");
+
+    printf("Codigo do aluno: ");
+    scanf("%d", &codigo);
+    fflush(stdin);
+
+    pSetor = localizarPosicaoAtleta(codigo);
+    if (pSetor !=-9){
+        //exibir os dados
+        printf("\nCodigo: %d\n", atletas[pSetor].codigoCadastro);
+        printf("Nome: %s\n", atletas[pSetor].nome);
+
+        printf("\nInformação do aluno\n");
+    }else{
+        printf("Setor nao localizado!\n");
+    }
+
+    system("pause");
 }
 
 void dadosAtleta() {
@@ -165,41 +441,22 @@ void dadosAtleta() {
 
         pAtleta = localizarPosicaoAtleta(r.codigoCadastro);
 
-        if (pAtleta==-9){
-
-
-            printf("\nInsira o nome do aluno: "); //input apenas de caracteres não numericos
-            scanf("%s", r.nome);
+        if (pAtleta!=-9){
+            printf("Cadastro foi localizado");
+        }else{
+            atletas[pLivre].codigoCadastro=pAtleta;
+            printf("\nInsira o codigo do aluno: "); //input apenas de caracteres não numericos
+            scanf("%d", r.codigoCadastro);
             fflush(stdin);
 
-            printf("\nInsira a idade do Aluno: "); //input apenas de números
-            /* do{
-                 ch = getchar();
-                 if (ch>= )
-             }*/
-            scanf("%d", &r.Idade);
-            fflush(stdin);
-
-            printf("\nInsira o genero do Aluno: "); //tratar a entrada de dados aqui.
-            scanf("%s", r.genero);
-            fflush(stdin);
-
-            printf("\nInsira a massa corporal do Aluno em kilogramas: ");
-            scanf("%f", &r.massaCorporal);
-            fflush(stdin);
-
-            printf("\nInsira a altura em centimetros: ");
-            scanf("%f", &r.altura); //precisam ter apenas três caracteres, colocar limitação de entrada;
+            printf("\nInsira o nome do Aluno: "); //input apenas de números
+            scanf("%s", &r.nome);
             fflush(stdin);
 
             atletas[pLivre]=r;
-        }else{
-            printf("Código já cadastrado\n");
         }
     }
-
     system("pause");
-
 }
 
 int print_struct(int pos){
@@ -274,12 +531,15 @@ void treino(){
         switch (Nivel) {
             case 1:
                 printf("Voce e um iniciante!!!");
+                treino_iniciante();
                 break;
             case 2:
                 printf("Voce e um intermediario!!!");
+                treino_intermediario();
                 break;
             case 3:
                 printf("Voce esta avancado!!!");
+                treino_avancado();
                 break;
             case 0:
                 printf("Voltando para o menu principal...");
@@ -326,12 +586,8 @@ void menu() {
 }
 
 
-void inicializar() {
-
-}
 
 int main() {
-    inicializar();
     printf("Bem vindo ao sistema automatizado de treino de musculacao\n");
     menu();
     return 0;
