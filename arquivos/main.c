@@ -120,7 +120,7 @@ void Verificar(){
                 printf("Nome %s\n", Pessoas[i].Nome);
                 printf("Idade %d\n", Pessoas[i].Idade);
                 printf("genero %c\n", Pessoas[i].genero);
-                printf("Massa corporal %f\n", Pessoas[i].MassaCorp);
+                printf("Massa corporal %d\n", Pessoas[i].MassaCorp);
                 printf("Altura %f\n", Pessoas[i].altura);
                 printf("\nVoce esta no dia: %d / 20\n", Pessoas[i].contDias1);
                 registro =1;
@@ -142,7 +142,7 @@ void Verificar(){
 void Remover(){
     int Matricula;
     Lista();
-    printf("\nDigite o codigo do aluno que deseja remover\n" );
+    printf("\nDigite o codigo do aluno que deseja remover" );
     scanf("%d",&Matricula);
     --Matricula;
     Pessoas[Matricula].Ativo=0;
@@ -159,9 +159,9 @@ void Lista(){
             printf("Codigo de cadastro %d\n", Pessoas[i].Codigocadastro);
             printf("Nome %s\n", Pessoas[i].Nome);
             printf("Idade %d\n", Pessoas[i].Idade);
-            printf("Sexo %d\n", Pessoas[i].genero);
-            printf("Massa corporal %d\n", Pessoas[i].MassaCorp);
-            printf("altura %d\n", Pessoas[i].altura);
+            printf("Sexo %c\n", Pessoas[i].genero);
+            printf("Massa corporal %f\n", Pessoas[i].MassaCorp);
+            printf("altura %f\n", Pessoas[i].altura);
         }
     }
 
@@ -215,16 +215,15 @@ void treino_iniciante() {
                     contDias1++;
                 }
             }
-            while (fimTreino1 != 1) {
-                printf("\n\nDigite 1 quando o treino for finalizado\n ou digite 0 para volta pro Menu principal\n");
+            while (fimTreino1 == 2) {
+                printf("\n\nDigite 2 quando o treino for finalizado\n ou digite 1 para voltar pro Menu principal\n");
                 scanf("%d", &fimTreino1);
-                if (fimTreino1 != 1) {
-                    printf("\ntermine o seu treino\n");
-
-
-                }
-                else {
+                if (fimTreino1 == 1) {
                     Menu();
+                    }
+
+
+
                 }
                 if (dias1 == 1 || dias1 == 3 || dias1 == 5 && fimTreino1 == 1) {
                     fimTreino1=0;
@@ -264,7 +263,7 @@ void treino_iniciante() {
             }
         }
     }
-}
+
 
 void intermediario_A(){
     printf("Ficha de treino ABC\n"
