@@ -1,17 +1,174 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#define MAX_Pessoa 250
+typedef struct {
+    char Nome[MAX_Pessoa][50];
+    int Idade[MAX_Pessoa];
+    char genero[MAX_Pessoa];
+    float MassaCorp[MAX_Pessoa];
+    int Codigocadastro[MAX_Pessoa];
+    float altura[MAX_Pessoa];
+    int Ativo;
+    int dias1, contDias1, dias2, contDias2, inicioTreino1, fimTreino1, fimTreino2, inicioTreino2;
 
+} Pessoa;
+Pessoa  Pessoas[MAX_Pessoa];
+void treino();
+void treino_iniciante();
+void treino_intermediario();
+void treino_avancado();
+void avancado_a();
+void avancado_b();
+void avancado_c();
+void avancado_d();
+void intermediario_A();
+void intermediario_b();
+void intermediario_c();
+void iniciante_B();
+void iniciante_A();
+void Menu();
+void Cadastrar();
+void Verificar();
+void Remover();
+void Lista();
+int main() {
+    Menu();
+    return 0;
+}
+void Menu(){
+    int op;
+    do {
+        system("cls");
+        printf("Bem vindo ao sistema automatizado de treino de musculacao\n");
 
-typedef struct dados_cliente{
-    int codigoCadastro;
-    char nome[51]; //fgets
+        printf("\n1 - Cadastrar Aluno\n2 - Verificar se ja possui cadastro");
+        printf("\n3 - Remover aluno  \n4 - Inicia execicio\n");
+        printf("\n0 - Sair");
+
+        scanf("%i", &op);
+        getchar();
+        switch (op) {
+            case 1:
+                Cadastrar();
+                break;
+            case 2:
+                Verificar();
+                break;
+            case 3:
+                Remover();
+                break;
+            case 4:
+                treino();
+                break;
+        }
+        getchar();
+    } while(op!=0);
+}
+void Cadastrar(){
+
+    char Nome[50];
     int Idade;
-    char genero[2];
-    float massaCorporal;
+    char genero;
+    float MassaCorp;
+    int objetivo;
+    int divisao;
+    int op;
+    int codCadastro;
     float altura;
-    int ativo;
-}dados;
 
+
+    do{
+        printf("\nPor favor digite codigo de cadastro");
+        scanf("%d", &codCadastro);
+        fflush(stdin);
+        printf("\nPor favor digite seu nome");
+        fgets(Nome,sizeof(Nome),stdin);
+        fflush(stdin);
+        printf("\nPor favor digite sua idade");
+        scanf("%d", &Idade);
+        fflush(stdin);
+        printf("Digite H para homem e M para mulher:\n");
+        scanf(" %c", &genero);
+        fflush(stdin);
+        printf("\nPor favor digite sua massa corporal");
+        scanf("%f", &MassaCorp);
+        fflush(stdin);
+        printf("\nPor favor digite sua altura");
+        scanf("%f", &altura);
+        fflush(stdin);
+
+
+        for (int i = 0; i<MAX_Pessoa; ++i) {
+            if (Pessoas[i].Ativo==0)
+            {
+                Pessoas[i].Idade[MAX_Pessoa] = Idade;
+                Pessoas[i].genero[MAX_Pessoa] = genero;
+                Pessoas[i].MassaCorp[MAX_Pessoa] = MassaCorp;
+                Pessoas[i].altura[MAX_Pessoa] = altura;
+                Pessoas[i].Codigocadastro[MAX_Pessoa] = codCadastro;
+                strstr(Pessoas[i].Nome, Nome);
+                Pessoas[i].Ativo=1;
+                break;
+            }
+        }
+
+        printf("\n1 - Continuar\n0 - Sair\n");
+        scanf("%d", &op);
+
+    } while (op!=0);
+}
+void Verificar(){
+
+    char Nome[50];
+    int op;
+    do {
+        system("cls");
+        printf("\nPor favor digite o nome do aluno pra gente verificar\n");
+        fgets(Nome, sizeof(Nome), stdin);
+        for (int i = 0; i<MAX_Pessoa; ++i) {
+            if (strstr(Pessoas[i].Nome, Nome) != NULL) {
+                printf("Matricula %d\n", Pessoas[i].Codigocadastro);
+                printf("Nome %s\n", Pessoas[i].Nome);
+                printf("Idade %d\n", Pessoas[i].Idade);
+                printf("Sexo %d\n", Pessoas[i].genero);
+                printf("Massa corporal %d\n", Pessoas[i].MassaCorp);
+                printf("Altura %d\n", Pessoas[i].altura);
+            }
+
+        }
+        printf("\nDigite 0 para sair ou 1 para verificar novamente");
+        scanf("%d", &op);
+        getchar();
+    } while (op!=0);
+}
+void Remover(){
+    int Matricula;
+    Lista();
+    printf("\nDigite o nome do aluno que deseja remover" );
+    scanf("%d",&Matricula);
+    --Matricula;
+    Pessoas[Matricula].Ativo=0;
+    printf("\nAluno foi removido com sucesson");
+    getchar();
+}
+void Lista(){
+    system ("cls");
+    printf("\n LISTA DE ALUNOS DA ACADEMIA\n");
+    for (int i = 0; i <MAX_Pessoa ; ++i) {
+        if(Pessoas[i].Ativo==1) {
+            printf("\n----------------\n");
+            printf("Codigo de cadastro %d\n", Pessoas[i].Codigocadastro);
+            printf("Nome %s\n", Pessoas[i].Nome);
+            printf("Idade %d\n", Pessoas[i].Idade);
+            printf("Sexo %d\n", Pessoas[i].genero);
+            printf("Massa corporal %d\n", Pessoas[i].MassaCorp);
+            printf("altura %d\n", Pessoas[i].altura);
+        }
+    }
+
+
+}
 void iniciante_A(){
     printf("Ficha de treino AB*\n"
            "Treino A\n"
@@ -24,7 +181,6 @@ void iniciante_A(){
            "Cadeira extensora_4x12\n"
            "Pulley Triceps_4x12\n");
 }
-
 void iniciante_B() {
     printf("Ficha de treino AB\n\n"
            "Treino B\n"
@@ -98,7 +254,6 @@ void treino_iniciante() {
         }
     }
 }
-
 void intermediario_A(){
     printf("Ficha de treino ABC\n"
            "\n"
@@ -136,9 +291,6 @@ void intermediario_c(){
            "Panturrilhas em pe_3x12-15\n"
            "Panturrilhas sentada");
 }
-// Segunda = 0 - terça = 1 - quarta = 2 - quinta = 3 - sexta = 4 - sab = 5 - domingo = 6
-
-
 void treino_intermediario(){
     while (contDias2<20) {
 
@@ -266,7 +418,6 @@ void avancado_d(){
            "Corda Cross_4x10-12\n"
            "Tríceps testa 4x10-12");
 }
-
 void treino_avancado(){
     int treinoA=1,treinoB=2, treinoC=3, treinoD=4, treinoAtual=1, fimTreino=0, inicioTreino=0, reset=0, contdias3=0;
 
@@ -378,145 +529,6 @@ void treino_avancado(){
     }
 
 }
-
-
-dados atletas[5];
-
-int localizarPosicaoAtleta(int cSet){
-    int s=0;
-    while (atletas[s].codigoCadastro != cSet && s<4){
-        s++;
-    }
-    if (atletas[s].codigoCadastro == cSet){
-        return s; //retorna a posição do setor
-    }
-
-    return -9; //retorna -9 para indicar que o setor não foi localizado
-}
-
-void consultaratleta(){
-    int codigo, pSetor, f;
-
-    system("cls");
-    printf("Consultar ficha do aluno\n");
-
-    printf("Codigo do aluno: ");
-    scanf("%d", &codigo);
-    fflush(stdin);
-
-    pSetor = localizarPosicaoAtleta(codigo);
-    if (pSetor !=-9){
-        //exibir os dados
-        printf("\nCodigo: %d\n", atletas[pSetor].codigoCadastro);
-        printf("Nome: %s\n", atletas[pSetor].nome);
-
-        printf("\nInformação do aluno\n");
-    }else{
-        printf("Setor nao localizado!\n");
-    }
-
-    system("pause");
-}
-
-void dadosAtleta() {
-    //colocar abaixo dentro de um loop para receber multiplas structs diferentes de alunos diferentes.
-    //criando a variável dados_aluno do tipo struct
-    //struct dadosAtleta *p, dadosAtleta1;
-    //p = &dadosAtleta1;
-    //printf("\nInsira seu código de cadastro ou digite 0 para criar um novo:"); //implementar
-    //se a posição for nula ou 0, o programa direcionará para criar uma nova posição.
-    //fflush(stdin);
-
-    dados r;
-    int pLivre, pAtleta;
-
-    pLivre = localizarPosicaoAtleta(-1);
-
-    if (pLivre==-9){
-        printf("Não tem vaga. \n");
-    }else{
-        printf("\nInsira um codigo de cadastro com tres digitos: "); //impplementar: isdigit(ch); Implementar Sizeof() para 3 caracteres;
-        scanf("%d", &r.codigoCadastro);
-        fflush(stdin);
-
-        pAtleta = localizarPosicaoAtleta(r.codigoCadastro);
-
-        if (pAtleta!=-9){
-            printf("Cadastro foi localizado");
-        }else{
-            atletas[pLivre].codigoCadastro=pAtleta;
-            printf("\nInsira o codigo do aluno: "); //input apenas de caracteres não numericos
-            scanf("%d", r.codigoCadastro);
-            fflush(stdin);
-
-            printf("\nInsira o nome do Aluno: "); //input apenas de números
-            scanf("%s", &r.nome);
-            fflush(stdin);
-
-            atletas[pLivre]=r;
-        }
-    }
-    system("pause");
-}
-
-int print_struct(int pos){
-    dados p;
-    int i;
-
-
-    for (i=0;i<100;i++){
-
-        p=atletas[i];
-
-        // if tem cadastro na posicao
-        printf("Nome %s\n", p.nome);
-        printf("Idade %d\n", p.Idade);
-        printf("Sexo %.s\n", p.genero);
-        printf("Massa corporal %.2f\n", p.massaCorporal);
-        printf("altura %f\n", p.altura);
-    }
-
-}
-
-int print_dados(int pos){
-    if (pos >=0 && pos <100){
-        printf("Nome %s\n", atletas[pos].nome);
-        printf("Idade %d\n", atletas[pos].Idade);
-        printf("Sexo %.s\n", atletas[pos].genero);
-        printf("Massa corporal %.2f\n", atletas[pos].massaCorporal);
-
-    }
-}
-
-void verificar() {
-    int op;
-    int cod, i;
-
-    do {
-        system("cls");
-        printf("\nInsira um codigo de cadastro com tres digitos: ");
-        scanf("%d", &cod);
-
-        for (i = 0; i<3; i++) {
-            if (atletas[i].codigoCadastro == cod) {
-                printf("usuario ja esta cadastrado");
-                print_dados(i);
-            }
-        }
-        // Printar "usuario está cadastrado"
-        //printar o struct inteiro
-
-        //Por ultimo implementar uma nova função que permitirá que o usuário
-        //consulte os dados cadastrados(struct).
-        //só vai entrar o If se o código digitado for igual 1
-
-        printf("\nDigite 0 para sair ou 1 para verificar novamente");
-        scanf("%d", &op);
-        getchar();
-    } while (op!=0);
-}
-
-
 void treino(){
     int Nivel;
 
@@ -553,42 +565,3 @@ void treino(){
 
 }
 
-void menu() {
-    int op,Nivel, codigo;
-    do {
-        system("cls");
-        printf("Bem vindo ao sistema automatizado de treino de musculacao\n");
-
-        printf("\n1 - Cadastrar Aluno\n2 - verificar se ja possui cadastro\n3 - Inicia execicio\n");
-        printf("\n0 - Sair\n");
-        scanf("%i", &op);
-        getchar();
-        switch (op) {
-            case 1:
-                dadosAtleta();
-                break;
-            case 2:
-                verificar();
-                break;
-            case 3:
-                treino();
-                break;
-            case 0:
-                printf("Programa encerrado\n");
-                break;
-            default:
-                printf("Opcao invalida!\n");
-        }
-        system("pause");
-
-    } while (op != 0);
-
-}
-
-
-
-int main() {
-    printf("Bem vindo ao sistema automatizado de treino de musculacao\n");
-    menu();
-    return 0;
-}
