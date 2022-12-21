@@ -33,7 +33,7 @@ void iniciante_A();
 void Menu();
 void Cadastrar();
 void Verificar();
-void Remover();
+
 void Lista();
 int main() {
     Menu();
@@ -46,7 +46,7 @@ void Menu(){
         printf("Bem vindo ao sistema automatizado de treino de musculacao\n");
 
         printf("\n1 - Cadastrar Aluno\n2 - Verificar se ja possui cadastro");
-        printf("\n3 - Remover aluno  \n4 - Inicia execicio\n");
+        printf("\n3 - Inicia execicio\n");
         printf("\n0 - Sair:\n");
 
         scanf("%d", &op);
@@ -59,9 +59,6 @@ void Menu(){
                 Verificar();
                 break;
             case 3:
-                Remover();
-                break;
-            case 4:
                 treino();
                 break;
             default:
@@ -144,21 +141,7 @@ void Verificar(){
 
     } while (opp!=0);
 }
-void Remover() {
-    int Matricula;
-    int z = 0;
-    int pAluno;
-    Lista();
-    printf("\nDigite o codigo do aluno que deseja remover");
-    scanf("%d", &Matricula);
-    //aqui
-        while (Pessoas[z].Codigocadastro != Matricula && pAluno < MAX_Pessoa) {pAluno ++;}
-        if(Pessoas[z].Codigocadastro == Matricula){
-        Pessoas[z].Ativo = 0; //aqui
-        printf("\nAluno foi removido com sucesso");
-        getchar();
-    }
-}
+
 void Lista(){
     int i;
     system ("cls");
@@ -172,6 +155,7 @@ void Lista(){
             printf("Sexo %c\n", Pessoas[i].genero);
             printf("Massa corporal %f\n", Pessoas[i].MassaCorp);
             printf("altura %f\n", Pessoas[i].altura);
+            getchar();
         }
     }
 
