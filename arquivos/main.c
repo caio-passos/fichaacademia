@@ -14,6 +14,8 @@ typedef struct {
 
 } Pessoa;
 
+
+
 Pessoa  Pessoas[MAX_Pessoa];
 void treino();
 void treino_iniciante();
@@ -74,45 +76,47 @@ void Cadastrar(){
 
 
     int opa;
-
+    int cad = 0;
 
     do{
 
 
         printf("\nPor favor digite codigo de cadastro:\n");
-        scanf("%d", &Pessoas->Codigocadastro);
+        scanf("%d", &Pessoas[cad].Codigocadastro);
         fflush(stdin);
         printf("\nPor favor digite seu nome:\n");
-        scanf("%s",Pessoas->Nome);
+        scanf("%s",Pessoas[cad].Nome);
         fflush(stdin);
         printf("\nPor favor digite sua idade:\n");
-        scanf("%d", &Pessoas->Idade);
+        scanf("%d", &Pessoas[cad].Idade);
         fflush(stdin);
         printf("Digite H para homem e M para mulher:\n");
-        scanf(" %c", &Pessoas->genero);
+        scanf(" %c", &Pessoas[cad].genero);
         fflush(stdin);
         printf("\nPor favor digite sua massa corporal:\n");
-        scanf("%f", &Pessoas->MassaCorp);
+        scanf("%f", &Pessoas[cad].MassaCorp);
         fflush(stdin);
         printf("\nPor favor digite sua altura:\n");
-        scanf("%f", &Pessoas->altura);
+        scanf("%f", &Pessoas[cad].altura);
         fflush(stdin);
 
 
         printf("\n1 - Continuar\n0 - Sair\n");
+        cad++;
         scanf("%d", &opa);
 
     } while (opa!=0);
+
 }
 void Verificar(){
-    int registro;
+    int registro = 0;
     int cod;
     int opp;
     do {
-        system("cls");
+
         printf("\nDigite o seu codigo de aluno!: \n");
         scanf("%d", &cod);
-        int i;
+        int i = -1; //teste
 
         for ( i = 0; i<MAX_Pessoa; ++i) {
             if (Pessoas[i].Codigocadastro == cod) {
@@ -220,49 +224,49 @@ void treino_iniciante() {
                 scanf("%d", &fimTreino1);
                 if (fimTreino1 == 1) {
                     Menu();
-                    }
-
-
-
                 }
-                if (dias1 == 1 || dias1 == 3 || dias1 == 5 && fimTreino1 == 1) {
-                    fimTreino1=0;
-                    printf("\nDigite o seu codigo de aluno para comecar o treino de hoje!: \n");
-                    scanf("%d", &inicioTreino1);
-                    int i;
-                    for ( i = 0; i <MAX_Pessoa; ++i) {
-                        if (Pessoas[i].Codigocadastro == inicioTreino1) {
-                            printf("\nNome:%s", Pessoas[i].Nome);
-                            printf("\nDia de treino: %d / 20\n", contDias1);
-                            iniciante_B();
-                            dias1++;
-                            contDias1++;
-                        }
-                    }
-                    while (fimTreino1 != 1) {
-                        printf("\n\nDigite 1 quando o treino for finalizado\n ou digite 0 para volta pro Menu principal\n");
-                        scanf("%d", &fimTreino1);
-                        if (fimTreino1 != 1) {
-                            printf("\ntermine o seu treino\n");
-
-                        }
-                        else {
-                            Menu();
-                        }
-                        if (dias1 == 6) {
-                            dias1 = 0;
-                        }
 
 
-                    }
-                    if (contDias1 == 20) {
-                        dias1 = 8;
-                    }
-                }
 
             }
+            if (dias1 == 1 || dias1 == 3 || dias1 == 5 && fimTreino1 == 1) {
+                fimTreino1=0;
+                printf("\nDigite o seu codigo de aluno para comecar o treino de hoje!: \n");
+                scanf("%d", &inicioTreino1);
+                int i;
+                for ( i = 0; i <MAX_Pessoa; ++i) {
+                    if (Pessoas[i].Codigocadastro == inicioTreino1) {
+                        printf("\nNome:%s", Pessoas[i].Nome);
+                        printf("\nDia de treino: %d / 20\n", contDias1);
+                        iniciante_B();
+                        dias1++;
+                        contDias1++;
+                    }
+                }
+                while (fimTreino1 != 1) {
+                    printf("\n\nDigite 1 quando o treino for finalizado\n ou digite 0 para volta pro Menu principal\n");
+                    scanf("%d", &fimTreino1);
+                    if (fimTreino1 != 1) {
+                        printf("\ntermine o seu treino\n");
+
+                    }
+                    else {
+                        Menu();
+                    }
+                    if (dias1 == 6) {
+                        dias1 = 0;
+                    }
+
+
+                }
+                if (contDias1 == 20) {
+                    dias1 = 8;
+                }
+            }
+
         }
     }
+}
 
 
 void intermediario_A(){
