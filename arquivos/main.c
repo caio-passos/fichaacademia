@@ -3,12 +3,12 @@
 #include <string.h>
 #define MAX_Pessoa 250
 typedef struct {
-    char Nome[MAX_Pessoa][50];
-    int Idade[MAX_Pessoa];
-    char genero[MAX_Pessoa];
-    float MassaCorp[MAX_Pessoa];
-    int Codigocadastro[MAX_Pessoa];
-    float altura[MAX_Pessoa];
+    char Nome[50];
+    int Idade;
+    char genero;
+    float MassaCorp;
+    int Codigocadastro;
+    float altura;
     int Ativo;
     int dias1, contDias1, dias2, contDias2, inicioTreino1, fimTreino1, fimTreino2, inicioTreino2;
 
@@ -71,19 +71,19 @@ void Cadastrar(){
     int Idade;
     char genero;
     float MassaCorp;
-    int objetivo;
-    int divisao;
-    int op;
+
+    int op=0;
     int codCadastro;
     float altura;
 
 
     do{
+
         printf("\nPor favor digite codigo de cadastro");
         scanf("%d", &codCadastro);
         fflush(stdin);
         printf("\nPor favor digite seu nome");
-        fgets(Nome,sizeof(Nome),stdin);
+        scanf("%s",Pessoas->Nome);
         fflush(stdin);
         printf("\nPor favor digite sua idade");
         scanf("%d", &Idade);
@@ -102,12 +102,11 @@ void Cadastrar(){
         for (int i = 0; i<MAX_Pessoa; ++i) {
             if (Pessoas[i].Ativo==0)
             {
-                Pessoas[i].Idade[MAX_Pessoa] = Idade;
-                Pessoas[i].genero[MAX_Pessoa] = genero;
-                Pessoas[i].MassaCorp[MAX_Pessoa] = MassaCorp;
-                Pessoas[i].altura[MAX_Pessoa] = altura;
-                Pessoas[i].Codigocadastro[MAX_Pessoa] = codCadastro;
-                strstr(Pessoas[i].Nome, Nome);
+                Pessoas[i].Idade= Idade;
+                Pessoas[i].genero= genero;
+                Pessoas[i].MassaCorp = MassaCorp;
+                Pessoas[i].altura= altura;
+                Pessoas[i].Codigocadastro = codCadastro;
                 Pessoas[i].Ativo=1;
                 break;
             }
@@ -128,7 +127,7 @@ void Verificar(){
         fgets(Nome, sizeof(Nome), stdin);
         for (int i = 0; i<MAX_Pessoa; ++i) {
             if (strstr(Pessoas[i].Nome, Nome) != NULL) {
-                printf("Matricula %d\n", Pessoas[i].Codigocadastro);
+                printf("codigo do aluno %d\n", Pessoas[i].Codigocadastro);
                 printf("Nome %s\n", Pessoas[i].Nome);
                 printf("Idade %d\n", Pessoas[i].Idade);
                 printf("Sexo %d\n", Pessoas[i].genero);
@@ -145,11 +144,11 @@ void Verificar(){
 void Remover(){
     int Matricula;
     Lista();
-    printf("\nDigite o nome do aluno que deseja remover" );
+    printf("\nDigite o codigo do aluno que deseja remover" );
     scanf("%d",&Matricula);
     --Matricula;
     Pessoas[Matricula].Ativo=0;
-    printf("\nAluno foi removido com sucesson");
+    printf("\nAluno foi removido com sucesso");
     getchar();
 }
 void Lista(){
@@ -199,20 +198,23 @@ void iniciante_B() {
 
 int dias1, contDias1, dias2, contDias2, inicioTreino1, fimTreino1, fimTreino2, inicioTreino2;
 void treino_iniciante() {
-
+    int i;
     while (contDias1 < 20) {
 
         if (dias1 == 0 || dias1 == 2 || dias1 == 4 ) {
             fimTreino1=0;
-            printf("\nDigite 1 para comecar o treino de hoje!: \n");
-            while (inicioTreino1 != 1) {
-                scanf("%d", &inicioTreino1);
-            }
-            printf("\nDia de treino: %d / 20\n", contDias1);
-            iniciante_A();
-            dias1++;
-            contDias1++;
+            printf("\nDigite o seu codigo de aluno para comecar o treino de hoje!: \n");
+            scanf("%d", &inicioTreino1);
+            for (int i = 0; i <MAX_Pessoa; ++i) {
+                if (Pessoas[i].Codigocadastro == inicioTreino1) {
+                    printf("\nNome:%s", Pessoas[i].Nome);
 
+                    printf("\nDia de treino: %d / 20\n", contDias1);
+                    iniciante_A();
+                    dias1++;
+                    contDias1++;
+                }
+            }
             while (fimTreino1 != 1) {
                 printf("\n\nDigite 1 quando o treino for finalizado\n");
                 scanf("%d", &fimTreino1);
@@ -222,16 +224,17 @@ void treino_iniciante() {
                 }
                 if (dias1 == 1 || dias1 == 3 || dias1 == 5 && fimTreino1 == 1) {
                     fimTreino1=0;
-                    printf("\nDigite 1 para comecar o treino de hoje!: \n");
-                    while (inicioTreino1 != 1) {
-                        scanf("%d", &inicioTreino1);
-
+                    printf("\nDigite o seu codigo de aluno para comecar o treino de hoje!: \n");
+                    scanf("%d", &inicioTreino1);
+                    for (int i = 0; i <MAX_Pessoa; ++i) {
+                        if (Pessoas[i].Codigocadastro == inicioTreino1) {
+                            printf("\nNome:%s", Pessoas[i].Nome);
+                            printf("\nDia de treino: %d / 20\n", contDias1);
+                            iniciante_B();
+                            dias1++;
+                            contDias1++;
+                        }
                     }
-                    printf("\nDia de treino: %d / 20\n", contDias1);
-                    iniciante_B();
-                    dias1++;
-                    contDias1++;
-
                     while (fimTreino1 != 1) {
                         printf("\n\nDigite 1 quando o treino for finalizado\n");
                         scanf("%d", &fimTreino1);
@@ -296,14 +299,18 @@ void treino_intermediario(){
 
         if (dias2 == 0 || dias2 == 3) {
             fimTreino2 = 0;
-            printf("\nDigite 1 para comecar o treino de hoje!: \n");
-            while (inicioTreino2 != 1) {
-                scanf("%d", &inicioTreino2);
+            printf("\nDigite o seu codigo de aluno para comecar o treino de hoje!: \n");
+            scanf("%d", &inicioTreino2);
+            for (int i = 0; i <MAX_Pessoa; ++i) {
+                if (Pessoas[i].Codigocadastro == inicioTreino2) {
+                    printf("\nNome:%s", Pessoas[i].Nome);
+
+                    printf("Dia de treino: %d / 20", contDias2);
+                    intermediario_A();
+                    dias2++;
+                    contDias2++;
+                }
             }
-            printf("Dia de treino: %d / 20", contDias2);
-            intermediario_A();
-            dias2++;
-            contDias2++;
 
             while (fimTreino2 != 1) {
                 printf("\n\nDigite 1 quando o treino for finalizado\n");
@@ -314,16 +321,17 @@ void treino_intermediario(){
 
                     if (dias2 == 1 || dias2 == 4 && fimTreino2 == 1) {
                         fimTreino2 = 0;
-                        printf("\nDigite 1 para comecar o treino de hoje!: \n");
-                        while (inicioTreino2 != 1) {
-                            scanf("%d", &inicioTreino2);
+                        printf("\nDigite o seu codigo de aluno para comecar o treino de hoje!: \n");
+                        scanf("%d", &inicioTreino2);
+                        for (int i = 0; i <MAX_Pessoa; ++i) {
+                            if (Pessoas[i].Codigocadastro == inicioTreino2) {
+                                printf("\nNome:%s", Pessoas[i].Nome);
+                                printf("Dia de treino: %d / 20", contDias2);
+                                intermediario_b();
+                                dias2++;
+                                contDias2++;
+                            }
                         }
-
-                        printf("Dia de treino: %d / 20", contDias2);
-                        intermediario_b();
-                        dias2++;
-                        contDias2++;
-
                         while (fimTreino2 != 1) {
                             printf("\n\nDigite 1 quando o treino for finalizado\n");
                             scanf("%d", &fimTreino2);
@@ -333,16 +341,17 @@ void treino_intermediario(){
                             } else {
                                 if (dias2 == 2 || dias2 == 5 && fimTreino2 == 1) {
                                     fimTreino2 = 0;
-                                    printf("\nDigite 1 para comecar o treino de hoje!: \n");
-                                    while (inicioTreino2 != 1) {
-                                        scanf("%d", &inicioTreino2);
+                                    printf("\nDigite o seu codigo de aluno para comecar o treino de hoje!: \n");
+                                    scanf("%d", &inicioTreino2);
+                                    for (int i = 0; i <MAX_Pessoa; ++i) {
+                                        if (Pessoas[i].Codigocadastro == inicioTreino2) {
+                                            printf("\nNome:%s", Pessoas[i].Nome);
+                                            printf("\nDia de treino: %d / 20\n", contDias2);
+                                            intermediario_c();
+                                            dias2++;
+                                            contDias2++;
+                                        }
                                     }
-
-                                    printf("\nDia de treino: %d / 20\n", contDias2);
-                                    intermediario_c();
-                                    dias2++;
-                                    contDias2++;
-
                                     while (fimTreino2 != 1) {
                                         printf("\n\nDigite 1 quando o treino for finalizado\n");
                                         scanf("%d", &fimTreino2);
@@ -427,15 +436,16 @@ void treino_avancado(){
 
         if (treinoAtual == 1) {
             fimTreino = 0;
-            printf("Digite 1 para comecar o treino de hoje!: ");
-            while (inicioTreino != 1) {
-                scanf("%d", &inicioTreino);
+            printf("\nDigite o seu codigo de aluno para comecar o treino de hoje!: \n");
+            scanf("%d", &inicioTreino);
+            for (int i = 0; i <MAX_Pessoa; ++i) {
+                if (Pessoas[i].Codigocadastro == inicioTreino) {
+                    printf("\nNome:%s", Pessoas[i].Nome);
+                    avancado_a();
+                    printf("\nDia de treino: %d / 20\n", contdias3);
+                    contdias3++;
+                }
             }
-
-            avancado_a();
-            printf("\nDia de treino: %d / 20\n", contdias3);
-            contdias3++;
-
             while (fimTreino != 1) {
                 printf("\n\nDigite 1 quando o treino for finalizado\n");
                 scanf("%d", &fimTreino);
@@ -452,15 +462,16 @@ void treino_avancado(){
         if (treinoAtual == 2 && fimTreino == 1) {
             fimTreino = 0;
             system("cls");
-            printf("Digite 1 para comecar o treino de hoje!: ");
-            while (inicioTreino != 1) {
-                scanf("%d", &inicioTreino);
+            printf("\nDigite o seu codigo de aluno para comecar o treino de hoje!: \n");
+            scanf("%d", &inicioTreino);
+            for (int i = 0; i <MAX_Pessoa; ++i) {
+                if (Pessoas[i].Codigocadastro == inicioTreino) {
+                    printf("\nNome:%s", Pessoas[i].Nome);
+                    avancado_b();
+                    printf("\nDia de treino: %d / 20\n", contdias3);
+                    contdias3++;
+                }
             }
-
-            avancado_b();
-            printf("\nDia de treino: %d / 20\n", contdias3);
-            contdias3++;
-
             while (fimTreino != 1) {
                 printf("\n\nDigite 1 quando o treino for finalizado\n");
                 scanf("%d", &fimTreino);
@@ -476,15 +487,16 @@ void treino_avancado(){
         if (treinoAtual == 3 && fimTreino == 1) {
             fimTreino = 0;
             system("cls");
-            printf("Digite 1 para comecar o treino de hoje!: ");
-            while (inicioTreino != 1) {
-                scanf("%d", &inicioTreino);
+            printf("\nDigite o seu codigo de aluno para comecar o treino de hoje!: \n");
+            scanf("%d", &inicioTreino);
+            for (int i = 0; i <MAX_Pessoa; ++i) {
+                if (Pessoas[i].Codigocadastro == inicioTreino) {
+                    printf("\nNome:%s", Pessoas[i].Nome);
+                    avancado_c();
+                    printf("\nDia de treino: %d / 20\n", contdias3);
+                    contdias3++;
+                }
             }
-
-            avancado_c();
-            printf("\nDia de treino: %d / 20\n", contdias3);
-            contdias3++;
-
             while (fimTreino != 1) {
                 printf("\n\nDigite 1 quando o treino for finalizado\n");
                 scanf("%d", &fimTreino);
@@ -500,15 +512,16 @@ void treino_avancado(){
         if (treinoAtual == 4 && fimTreino == 1) {
             fimTreino = 0;
             system("cls");
-            printf("Digite 1 para comecar o treino de hoje!: ");
-            while (inicioTreino != 1) {
-                scanf("%d", &inicioTreino);
+            printf("\nDigite o seu codigo de aluno para comecar o treino de hoje!: \n");
+            scanf("%d", &inicioTreino);
+            for (int i = 0; i <MAX_Pessoa; ++i) {
+                if (Pessoas[i].Codigocadastro == inicioTreino) {
+                    printf("\nNome:%s", Pessoas[i].Nome);
+                    avancado_d();
+                    printf("\nDia de treino: %d / 20\n", contdias3);
+                    contdias3++;
+                }
             }
-
-            avancado_d();
-            printf("\nDia de treino: %d / 20\n", contdias3);
-            contdias3++;
-
             while (fimTreino != 1) {
                 printf("\n\nDigite 1 quando o treino for finalizado\n");
                 scanf("%d", &fimTreino);
