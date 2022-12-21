@@ -99,6 +99,7 @@ void Cadastrar(){
         printf("\nPor favor digite sua altura:\n");
         scanf("%f", &Pessoas[cad].altura);
         fflush(stdin);
+        Pessoas[cad].Ativo = 1;
 
 
         printf("\n1 - Continuar\n0 - Sair\n");
@@ -119,7 +120,7 @@ void Verificar(){
         int i = -1; //teste
 
         for ( i = 0; i<MAX_Pessoa; ++i) {
-            if (Pessoas[i].Codigocadastro == cod) {
+            if (Pessoas[i].Codigocadastro == cod && Pessoas[i].Ativo == 1) {
                 printf("codigo do aluno %d\n", Pessoas[i].Codigocadastro);
                 printf("Nome %s\n", Pessoas[i].Nome);
                 printf("Idade %d\n", Pessoas[i].Idade);
@@ -143,15 +144,20 @@ void Verificar(){
 
     } while (opp!=0);
 }
-void Remover(){
+void Remover() {
     int Matricula;
+    int z = 0;
+    int pAluno;
     Lista();
-    printf("\nDigite o codigo do aluno que deseja remover" );
-    scanf("%d",&Matricula);
-    --Matricula;
-    Pessoas[Matricula].Ativo=0;
-    printf("\nAluno foi removido com sucesso");
-    getchar();
+    printf("\nDigite o codigo do aluno que deseja remover");
+    scanf("%d", &Matricula);
+    //aqui
+        while (Pessoas[z].Codigocadastro != Matricula && pAluno < MAX_Pessoa) {pAluno ++;}
+        if(Pessoas[z].Codigocadastro == Matricula){
+        Pessoas[z].Ativo = 0; //aqui
+        printf("\nAluno foi removido com sucesso");
+        getchar();
+    }
 }
 void Lista(){
     int i;
