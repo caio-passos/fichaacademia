@@ -120,7 +120,7 @@ void Verificar(){
                 printf("Nome %s\n", Pessoas[i].Nome);
                 printf("Idade %d\n", Pessoas[i].Idade);
                 printf("genero %c\n", Pessoas[i].genero);
-                printf("Massa corporal %d\n", Pessoas[i].MassaCorp);
+                printf("Massa corporal %f\n", Pessoas[i].MassaCorp);
                 printf("Altura %f\n", Pessoas[i].altura);
                 printf("\nVoce esta no dia: %d / 20\n", Pessoas[i].contDias1);
                 registro =1;
